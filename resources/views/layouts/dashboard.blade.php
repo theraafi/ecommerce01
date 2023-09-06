@@ -733,7 +733,13 @@
 							</li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                    <img src="{{ asset('dashboard_assets') }}/images/profile/17.jpg" width="20" alt=""/>
+                                    {{-- condition for profile photo start --}}
+                                    @if (Auth::user()->profile_photo)
+                                        <img src="{{ asset('dashboard_assets') }}/images/profile/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="" width="20">  
+                                    @else
+                                        <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt="" width="20"> 
+                                    @endif
+                                    {{-- condition for profile photo end --}}
 									<div class="header-info">
 										<span class="text-black"><strong>{{ Auth::user()->name }}</strong></span>
 										<p class="fs-12 mb-0"> {{ Auth::user()->email }} </p>

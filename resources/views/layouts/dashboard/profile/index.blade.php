@@ -18,7 +18,12 @@
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                <img src="{{ asset('dashboard_assets') }}/images/profile/profile.png" class="img-fluid rounded-circle" alt="">
+                                
+                                @if (Auth::user()->profile_photo)
+                                    <img src="{{ asset('dashboard_assets') }}/images/profile/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="">  
+                                @else
+                                    <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt=""> 
+                                @endif
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
@@ -44,9 +49,41 @@
                 </div>
             </div>
         </div>
-        
+
+        {{-- Profile Picture Change Start --}}
+        <div class="row">
+            <div class="col-xl-6 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Profile Picture</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+
+                            <form action="#" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Profile Picture</label>
+                                    <div class="col-sm-7">
+                                        <input type="file" class="form-control" name="profile_photo" >
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- Profile Picture Change end --}}
+
         {{-- Profile page frontend contents start --}}
-        
+
         {{-- <div class="row">
             <div class="col-xl-4">
                 <div class="card">
@@ -373,7 +410,7 @@
                 </div>
             </div>
         </div> --}}
-        
+
         {{-- Profile page frontend contents end --}}
     </div>
 </div>
