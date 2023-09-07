@@ -20,7 +20,7 @@
                             <div class="profile-photo">
                                 
                                 @if (Auth::user()->profile_photo)
-                                    <img src="{{ asset('dashboard_assets') }}/images/profile/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="">  
+                                    <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="">  
                                 @else
                                     <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt=""> 
                                 @endif
@@ -50,6 +50,7 @@
             </div>
         </div>
 
+        
         {{-- Profile Picture Change Start --}}
         <div class="row">
             <div class="col-xl-6 col-lg-12">
@@ -60,17 +61,27 @@
                     <div class="card-body">
                         <div class="basic-form">
 
-                            <form action="#" method="POST" enctype="multipart/form-data">
+                            <form action="{{url('profile/photo/upload')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Profile Picture</label>
-                                    <div class="col-sm-7">
+                                    <label class="col-sm-5 col-form-label">
+                                        
+                                        <div class="profile-photo">
+                                            @if (Auth::user()->profile_photo)
+                                                <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="" width="100">  
+                                            @else
+                                                <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt="" width="100"> 
+                                            @endif
+                                        </div>
+
+                                    </label>
+                                    <div class="col-sm-7 mt-5">
                                         <input type="file" class="form-control" name="profile_photo" >
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 text-center">
                                         <button type="submit" class="btn btn-primary">Upload</button>
                                     </div>
                                 </div>

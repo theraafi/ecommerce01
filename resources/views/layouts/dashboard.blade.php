@@ -735,7 +735,7 @@
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     {{-- condition for profile photo start --}}
                                     @if (Auth::user()->profile_photo)
-                                        <img src="{{ asset('dashboard_assets') }}/images/profile/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="" width="20">  
+                                        <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="" width="20">  
                                     @else
                                         <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt="" width="20"> 
                                     @endif
