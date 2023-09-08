@@ -13,6 +13,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
-Route::post('/profile/photo/upload', [App\Http\Controllers\HomeController::class, 'profile_photo_upload']);
 
+// Profile Routes start
+
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
+Route::post('/profile/photo/upload', [App\Http\Controllers\ProfileController::class, 'profile_photo_upload']);
+Route::post('/password/change', [App\Http\Controllers\ProfileController::class, 'password_change']);
+
+// Profile Routes end

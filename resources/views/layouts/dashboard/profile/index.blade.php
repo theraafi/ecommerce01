@@ -18,11 +18,13 @@
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                
+
                                 @if (Auth::user()->profile_photo)
-                                    <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="">  
+                                    <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}"
+                                        class="img-fluid rounded-circle" alt="">
                                 @else
-                                    <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt=""> 
+                                    <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png"
+                                        class="img-fluid rounded-circle" alt="">
                                 @endif
                             </div>
                             <div class="profile-details">
@@ -35,11 +37,28 @@
                                     <p>Email</p>
                                 </div>
                                 <div class="dropdown ml-auto">
-                                    <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown" aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg></a>
+                                    <a href="#" class="btn btn-primary light sharp" data-toggle="dropdown"
+                                        aria-expanded="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
+                                            viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24">
+                                                </rect>
+                                                <circle fill="#000000" cx="5" cy="12" r="2">
+                                                </circle>
+                                                <circle fill="#000000" cx="12" cy="12" r="2">
+                                                </circle>
+                                                <circle fill="#000000" cx="19" cy="12" r="2">
+                                                </circle>
+                                            </g>
+                                        </svg></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i> View profile</li>
-                                        <li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to close friends</li>
-                                        <li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to group</li>
+                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary mr-2"></i>
+                                            View profile</li>
+                                        <li class="dropdown-item"><i class="fa fa-users text-primary mr-2"></i> Add to
+                                            close friends</li>
+                                        <li class="dropdown-item"><i class="fa fa-plus text-primary mr-2"></i> Add to
+                                            group</li>
                                         <li class="dropdown-item"><i class="fa fa-ban text-primary mr-2"></i> Block</li>
                                     </ul>
                                 </div>
@@ -50,9 +69,10 @@
             </div>
         </div>
 
-        
-        {{-- Profile Picture Change Start --}}
+
+
         <div class="row">
+            {{-- Profile Picture Change Start --}}
             <div class="col-xl-6 col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -61,27 +81,30 @@
                     <div class="card-body">
                         <div class="basic-form">
 
-                            <form action="{{url('profile/photo/upload')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('profile/photo/upload') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-sm-5 col-form-label">
-                                        
+
                                         <div class="profile-photo">
                                             @if (Auth::user()->profile_photo)
-                                                <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}" class="img-fluid rounded-circle" alt="" width="100">  
+                                                <img src="{{ asset('uploads/profile_photo') }}/{{ Auth::user()->profile_photo }}"
+                                                    class="img-fluid rounded-circle" alt="" width="100">
                                             @else
-                                                <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png" class="img-fluid rounded-circle" alt="" width="100"> 
+                                                <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png"
+                                                    class="img-fluid rounded-circle" alt="" width="100">
                                             @endif
                                         </div>
 
                                     </label>
                                     <div class="col-sm-7 mt-5">
-                                        <input type="file" class="form-control" name="profile_photo" >
+                                        <input type="file" class="form-control" name="profile_photo">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-10 text-center">
+                                    <div class="col-sm-10 text-center mt-5 pt-3">
                                         <button type="submit" class="btn btn-primary">Upload</button>
                                     </div>
                                 </div>
@@ -90,8 +113,77 @@
                     </div>
                 </div>
             </div>
+            {{-- Profile Picture Change end --}}
+
+            {{-- Password Change start --}}
+            <div class="col-xl-6 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Password Change</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form action="{{ url('password/change') }}" method="POST">
+                                @csrf
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Old Password</label>
+                                    <div class="col-sm-7">
+                                        <input type="password" class="form-control" placeholder="Old Password"
+                                            name="old_password">
+                                        @error('old_password')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">New Password</label>
+                                    <div class="col-sm-7">
+                                        <input type="password" class="form-control" placeholder="New Password"
+                                            name="password">
+                                        @error('password')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-5 col-form-label">Confirm Password</label>
+                                    <div class="col-sm-7">
+                                        <input type="password" class="form-control" placeholder="Confirm Password"
+                                            name="password_confirmation">
+                                        @error('password_confirmation')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-10 text-center">
+                                        <button type="submit" class="btn btn-primary">Change</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Password Change end --}}
         </div>
-        {{-- Profile Picture Change end --}}
+
+
+
+
+
+
 
         {{-- Profile page frontend contents start --}}
 
