@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -18,6 +18,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
 Route::post('/profile/photo/upload', [App\Http\Controllers\ProfileController::class, 'profile_photo_upload']);
+Route::post('/profile/cover/upload', [App\Http\Controllers\ProfileController::class, 'cover_photo_upload']);
 Route::post('/password/change', [App\Http\Controllers\ProfileController::class, 'password_change']);
 
 // Profile Routes end
