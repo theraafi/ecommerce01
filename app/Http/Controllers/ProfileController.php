@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -44,7 +45,7 @@ class ProfileController extends Controller
             'old_password' => 'required',
             'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()->symbols()],
             'password_confirmation' => 'required',
-        ],[
+        ], [
             'old_password.required' => "Please Insert Old Password",
         ]);
 
@@ -55,7 +56,7 @@ class ProfileController extends Controller
             ]);
             return back()->with('update_successful', "Password has been changed successfully");
         } else {
-            return back()->with('old_pass_error',"Old password doesn't match");
+            return back()->with('old_pass_error', "Old password doesn't match");
         }
     }
 
@@ -67,7 +68,7 @@ class ProfileController extends Controller
     {
         $request->validate([
             'cover_photo' => 'required|image',
-        ],[
+        ], [
             'cover_photo.required' => "Please Upload Cover Photo"
         ]);
 
@@ -82,6 +83,35 @@ class ProfileController extends Controller
     }
 
     // Cover Photo Upload Method end
+
+    // Phone number Verfication start
+    public function phone_number_verify()
+    {
+        // echo auth()->user()->phone_number;
+
+        $url = "http://66.45.237.70/api.php";
+        $number = auth()->user()->phone_number;
+        $random = rand(100000, 999999);
+        $text = "Hello, ". auth()->user()->name." Your OTP is ". $random;
+        $data = array(
+            'username' => "01834833973",
+            'password' => "TE47RSDM",
+            'number' => "$number",
+            'message' => "$text"
+        );
+
+        $ch = curl_init(); // Initialize cURL
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $smsresult = curl_exec($ch);
+        $p = explode("|", $smsresult);
+        $sendstatus = $p[0];
+
+        return back();
+    }
+
+    // Phone number Verfication end
 
     // Profile Controller end
 }

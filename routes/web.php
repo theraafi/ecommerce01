@@ -20,5 +20,6 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'
 Route::post('/profile/photo/upload', [App\Http\Controllers\ProfileController::class, 'profile_photo_upload']);
 Route::post('/profile/cover/upload', [App\Http\Controllers\ProfileController::class, 'cover_photo_upload']);
 Route::post('/password/change', [App\Http\Controllers\ProfileController::class, 'password_change']);
+Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::class, 'phone_number_verify']);
 
 // Profile Routes end

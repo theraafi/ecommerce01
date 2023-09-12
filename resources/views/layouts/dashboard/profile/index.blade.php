@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
 
+
 <div class="content-body">
     <div class="container-fluid">
         <div class="page-titles">
@@ -267,27 +268,33 @@
                             <form action="{{ url('password/change') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">Old Password</label>
-                                    <div class="col-sm-7">
-                                        <input type="password" class="form-control" placeholder="Old Password"
-                                            name="old_password">
-                                        
+
+                                    <label class="col-sm-5 col-form-label">Phone Number</label>
+                                    <div class="col-sm-7 mt-2">
+                                        {{auth()->user()->phone_number }}
+
                                     </div>
 
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-5 col-form-label">New Password</label>
+                                    <div class="col-sm-10 text-center mt-2">
+                                        <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a>
+                                        <a href="#" class="btn btn-primary btn-sm btn-danger">Not Verified</a>
+                                        <a href="{{ url('phone/number/verify') }}" class="btn btn-primary btn-sm btn-success">Verify Now</a>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="col-sm-5 col-form-label">Your OTP</label>
                                     <div class="col-sm-7">
-                                        <input type="password" class="form-control" placeholder="New Password"
-                                            name="password">
-                                        @error('password')
-                                            <span class="text-danger">
-                                                {{ $message }}
-                                            </span>
-                                        @enderror
+                                        <input type="text" class="form-control" placeholder="Enter Here"
+                                            name="code">
+
                                     </div>
 
                                 </div>
+
 
 
                                 <div class="form-group row">
