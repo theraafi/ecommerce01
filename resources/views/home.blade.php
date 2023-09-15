@@ -15,7 +15,7 @@
                     @endif
 
                     <h1>
-                        Welcome {{ Auth::user()->name }}
+                        Welcome {{ auth()-> user()-> name }}
                     </h1>
                 </div>
             </div>

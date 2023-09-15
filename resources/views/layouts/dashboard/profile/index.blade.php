@@ -266,24 +266,25 @@
                                     {{ session('update_successful') }}
                                 </div>
                             @endif --}}
+
                             <form action="{{ url('phone/number/add') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
 
-                                    <label class="col-sm-5 col-form-label">Phone Number</label>
-                                    <div class="col-sm-7 mt-2">
+                                    <label class="col-sm-4 col-form-label">Phone Number</label>
+                                    <div class="col-sm-6">
                                         {{-- {{ auth()->user()->phone_number }} --}}
                                         @if (session('number_added'))
                                             <div class="text-success mt-2">
                                                 {{ session('number_added') }}
                                             </div>
                                         @endif
-                                        <input type="number" class="form-control"
-                                            placeholder="Enter your phone number" name="phone_number">
+                                        <input type="number" class="form-control" placeholder="Enter Here"
+                                            name="phone_number">
 
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-10 text-center mt-2">
+                                        <div class="col-sm-10 text-center">
                                             <button type="submit" class="btn btn-primary">Add</button>
                                         </div>
 
@@ -291,51 +292,56 @@
                                 </div>
 
                             </form>
-                            <form action="{{ url('code/confirm') }}" method="POST">
-                                @csrf
 
-
-                                <div class="form-group row">
-                                    <div class="col-sm-10 mt-2">
-                                        {{-- <a href="{{ url('phone/number/add') }}" class="btn btn-primary btn-sm btn-success">Add</a> --}}
-                                        {{-- <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a> --}}
-                                        <a href="#" class="btn btn-primary btn-sm btn-danger">Not Verified</a>
+                            <div class="form-group row">
+                                <div class="col-sm-10 mt-2">
+                                    @if ($verification_status)
+                                        <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a>
+                                    @else
+                                        <a href="#" class="btn btn-primary btn-sm btn-danger text-center">Not
+                                            Verified</a>
                                         <a href="{{ url('phone/number/verify') }}"
-                                            class="btn btn-primary btn-sm btn-success">Verify Now</a>
+                                            class="btn btn-primary btn-sm btn-success text-center">Verify Now</a>
+                                        
+                                    @endif
 
-                                        @if (session('otp_sent'))
-                                            <div class="text-success mt-2">
-                                                {{ session('otp_sent') }}
+                                    @if (!$verification_status)
+                                        <form action="{{ url('code/confirm') }}" method="POST">
+                                            @csrf
+                                            <div class="form-group row mt-3">
+                                                <label class="col-sm-5 col-form-label">Your OTP</label>
+                                                <div class="col-sm-7">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Enter Here" name="code">
+
+                                                </div>
                                             </div>
-                                        @endif
-                                    </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-10 text-center mt-2">
+                                                    <button type="submit" class="btn btn-primary">Verify OTP</button>
+                                                </div>
+                                                @if (session('otp_mismatch'))
+                                                    <div class="text-success mt-2">
+                                                        {{ session('otp_mismatch') }}
+                                                    </div>
+                                                @endif
+                                                @if (session('otp_sent'))
+                                                    <div class="text-success mt-2">
+                                                        {{ session('otp_sent') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </form>
 
-                                </div>
-
-                                <div class="form-group row">
-
-                                    <label class="col-sm-5 col-form-label">Your OTP</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" placeholder="Enter Here"
-                                            name="code">
-
-                                    </div>
-
-                                </div>
-
-
-
-                                <div class="form-group row">
-                                    <div class="col-sm-10 text-center mt-2">
-                                        <button type="submit" class="btn btn-primary">Verify OTP</button>
-                                    </div>
-                                    @if (session('otp_mismatch'))
-                                        <div class="text-success mt-2">
-                                            {{ session('otp_mismatch') }}
-                                        </div>
                                     @endif
                                 </div>
-                            </form>
+
+                            </div>
+
+
+
+
+
                         </div>
                     </div>
                 </div>

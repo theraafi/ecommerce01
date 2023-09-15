@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Profile Routes start
 
@@ -25,3 +25,5 @@ Route::post('/code/confirm', [App\Http\Controllers\ProfileController::class, 'co
 Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::class, 'phone_number_verify']);
 
 // Profile Routes end
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

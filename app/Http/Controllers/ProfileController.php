@@ -19,7 +19,18 @@ class ProfileController extends Controller
     // Profile Controller start
     public function profile()
     {
-        return view('layouts.dashboard.profile.index');
+        if (Verification::where('user_id', auth()->user()->id)->exists()) {
+            if (Verification::where('user_id', auth()->user()->id)->first()->status) {
+                $verification_status = true;
+            }
+            else {
+                $verification_status = false;
+            }
+        } else {
+            $verification_status = false;
+        }
+
+        return view('layouts.dashboard.profile.index', compact('verification_status'));
     }
 
     // Profile Photo Upload Method Start
