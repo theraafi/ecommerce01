@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Verification;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -84,6 +86,22 @@ class ProfileController extends Controller
 
     // Cover Photo Upload Method end
 
+    // Phone Number add start
+    public function phone_number_add(Request $request)
+    {
+        $request->validate([
+            'phone_number' => 'required',
+        ], [
+            'phone_number.required' => "Please Insert phone number",
+        ]);
+
+        User::find(auth()->id())->update([
+            "phone_number" => $request->phone_number,
+        ]);
+        return back()->with('number_added', 'Your phone number has been added successfully');
+    }
+    // Phone Number add end
+
     // Phone number Verfication start
     public function phone_number_verify()
     {
@@ -108,10 +126,34 @@ class ProfileController extends Controller
         $p = explode("|", $smsresult);
         $sendstatus = $p[0];
 
-        return back();
+        Verification::insert([
+            "user_id" => auth()->user()->id,
+            "phone_number" => $number,
+            "code" => $random,
+            "created_at" => Carbon::now(),
+        ]);
+        return back()->with('otp_sent', 'Your OTP has been sent through sms');
     }
 
     // Phone number Verfication end
+
+    // Verificationm code conformation start
+    public function code_confirm(Request $request){
+        // echo $request->code;
+        // echo Verification::where('user_id', auth()->user()->id)->first();
+        if ($request->code==Verification::where('user_id', auth()->user()->id)->first()->code) {
+            Verification::where('user_id', auth()->user()->id)->update([
+                'status' => true,
+            ]);
+            return back();
+        }
+        else {
+            return back()->with('otp_mismatch', "OTP doesn't match");
+            // echo "Error";
+        }
+    }
+
+    // Verificationm code conformation end
 
     // Profile Controller end
 }

@@ -15,7 +15,8 @@
                 <div class="profile card card-body px-3 pt-3 pb-0">
                     <div class="profile-head">
                         <div class="photo-content">
-                            <div class="cover-photo w-100" style="background: url({{ asset('uploads/cover_photo') }}/{{ Auth::user()->cover_photo }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                            <div class="cover-photo w-100"
+                                style="background: url({{ asset('uploads/cover_photo') }}/{{ Auth::user()->cover_photo }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
                                 {{-- @if (Auth::user()->cover_photo)
                                     <img src="{{ asset('uploads/cover_photo') }}/{{ Auth::user()->cover_photo }}"
                                         class="img-fluid w-100" alt="">
@@ -265,23 +266,50 @@
                                     {{ session('update_successful') }}
                                 </div>
                             @endif --}}
-                            <form action="{{ url('password/change') }}" method="POST">
+                            <form action="{{ url('phone/number/add') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
 
                                     <label class="col-sm-5 col-form-label">Phone Number</label>
                                     <div class="col-sm-7 mt-2">
-                                        {{auth()->user()->phone_number }}
+                                        {{-- {{ auth()->user()->phone_number }} --}}
+                                        @if (session('number_added'))
+                                            <div class="text-success mt-2">
+                                                {{ session('number_added') }}
+                                            </div>
+                                        @endif
+                                        <input type="number" class="form-control"
+                                            placeholder="Enter your phone number" name="phone_number">
 
                                     </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10 text-center mt-2">
+                                            <button type="submit" class="btn btn-primary">Add</button>
+                                        </div>
 
+                                    </div>
                                 </div>
+
+                            </form>
+                            <form action="{{ url('code/confirm') }}" method="POST">
+                                @csrf
+
+
                                 <div class="form-group row">
-                                    <div class="col-sm-10 text-center mt-2">
-                                        <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a>
+                                    <div class="col-sm-10 mt-2">
+                                        {{-- <a href="{{ url('phone/number/add') }}" class="btn btn-primary btn-sm btn-success">Add</a> --}}
+                                        {{-- <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a> --}}
                                         <a href="#" class="btn btn-primary btn-sm btn-danger">Not Verified</a>
-                                        <a href="{{ url('phone/number/verify') }}" class="btn btn-primary btn-sm btn-success">Verify Now</a>
+                                        <a href="{{ url('phone/number/verify') }}"
+                                            class="btn btn-primary btn-sm btn-success">Verify Now</a>
+
+                                        @if (session('otp_sent'))
+                                            <div class="text-success mt-2">
+                                                {{ session('otp_sent') }}
+                                            </div>
+                                        @endif
                                     </div>
+
                                 </div>
 
                                 <div class="form-group row">
@@ -299,8 +327,13 @@
 
                                 <div class="form-group row">
                                     <div class="col-sm-10 text-center mt-2">
-                                        <button type="submit" class="btn btn-primary">Change</button>
+                                        <button type="submit" class="btn btn-primary">Verify OTP</button>
                                     </div>
+                                    @if (session('otp_mismatch'))
+                                        <div class="text-success mt-2">
+                                            {{ session('otp_mismatch') }}
+                                        </div>
+                                    @endif
                                 </div>
                             </form>
                         </div>
