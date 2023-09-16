@@ -6,13 +6,26 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+// Frontend Controllers start
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('index');
+Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact'])->name('contact');
+Route::get('/account', [App\Http\Controllers\FrontendController::class, 'account'])->name('account');
+
+// Frontend Controllers end
+
+
+// Customer Controller start
+Route::post('/customerregistration', [App\Http\Controllers\CustomerController::class, 'customerregistration'])->name('customerregistration');
+// Customer Controller end
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Profile Routes start
 

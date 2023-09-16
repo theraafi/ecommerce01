@@ -39,7 +39,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="{{ url('/home') }}" class="brand-logo">
+            <a href="{{ route('home') }}" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('dashboard_assets') }}/images/logo.png" alt="">
                 <img class="logo-compact" src="{{ asset('dashboard_assets') }}/images/logo-text.png" alt="">
                 <img class="brand-title" src="{{ asset('dashboard_assets') }}/images/logo-text.png" alt="">
@@ -785,7 +785,7 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="{{url('/')}}">Dashboard</a></li>
+							<li><a href="{{ route('home') }}">Dashboard</a></li>
 							<li><a href="workout-statistic.html">Workout Statistic</a></li>
 							<li><a href="workoutplan.html">Workout Plan</a></li>
 							<li><a href="distance-map.html">Distance Map</a></li>
