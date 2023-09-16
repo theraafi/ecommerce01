@@ -33,6 +33,7 @@ class ProfileController extends Controller
         return view('layouts.dashboard.profile.index', compact('verification_status'));
     }
 
+
     // Profile Photo Upload Method Start
     public function profile_photo_upload(Request $request)
     {
@@ -148,23 +149,54 @@ class ProfileController extends Controller
 
     // Phone number Verfication end
 
-    // Verificationm code conformation start
+    // Verificationm code confirmation start
     public function code_confirm(Request $request){
         // echo $request->code;
-        // echo Verification::where('user_id', auth()->user()->id)->first();
+        // echo Verification::where('user_id', auth()->user()->id)->first()->code;
         if ($request->code==Verification::where('user_id', auth()->user()->id)->first()->code) {
             Verification::where('user_id', auth()->user()->id)->update([
                 'status' => true,
             ]);
-            return back();
+            return back()->with('otp_sent', 'OTP Sent');
         }
         else {
             return back()->with('otp_mismatch', "OTP doesn't match");
-            // echo "Error";
+            // echo "OTP doesn't match";
         }
     }
 
-    // Verificationm code conformation end
+    // Verificationm code confirmation end
+
+    // Resend verification code  start
+    public function resend_code(Request $request){
+
+        $url = "http://66.45.237.70/api.php";
+        $number = auth()->user()->phone_number;
+        $random = rand(100000, 999999);
+        $text = "Hello, ". auth()->user()->name." Your OTP is ". $random;
+        $data = array(
+            'username' => "01834833973",
+            'password' => "TE47RSDM",
+            'number' => "$number",
+            'message' => "$text"
+        );
+
+        $ch = curl_init(); // Initialize cURL
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $smsresult = curl_exec($ch);
+        $p = explode("|", $smsresult);
+        $sendstatus = $p[0];
+        // echo $request->code;
+        // echo Verification::where('user_id', auth()->user()->id)->first()->code;
+        Verification::where('user_id', auth()->user()->id)->update([
+            "code" => $random,
+        ]);
+        return back()->with('otp_resent', 'New OTP Sent');
+    }
+
+    // Resend verification code  end
 
     // Profile Controller end
 }

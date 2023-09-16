@@ -785,7 +785,7 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="{{url('/home')}}">Dashboard</a></li>
+							<li><a href="{{url('/')}}">Dashboard</a></li>
 							<li><a href="workout-statistic.html">Workout Statistic</a></li>
 							<li><a href="workoutplan.html">Workout Plan</a></li>
 							<li><a href="distance-map.html">Distance Map</a></li>
@@ -935,11 +935,16 @@
 		<!--**********************************
             Content body start
         ***********************************-->
+
         <div class="content-body">
             <!-- row -->
-			<div class="container-fluid">
+
+			<div class="container">
 				<div class="row">
-                    @yield('content')
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
+
 					{{-- <div class="col-xl-6 col-xxl-12">
 						<div class="row">
 							<div class="col-sm-6">
