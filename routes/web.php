@@ -35,7 +35,7 @@ Route::post('/profile/cover/upload', [App\Http\Controllers\ProfileController::cl
 Route::post('/password/change', [App\Http\Controllers\ProfileController::class, 'password_change']);
 Route::post('/phone/number/add', [App\Http\Controllers\ProfileController::class, 'phone_number_add']);
 Route::post('/code/confirm', [App\Http\Controllers\ProfileController::class, 'code_confirm']);
-Route::post('/resend/code', [App\Http\Controllers\ProfileController::class, 'resend_code']);
+Route::get('/resend/code', [App\Http\Controllers\ProfileController::class, 'resend_code']);
 Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::class, 'phone_number_verify']);
 
 // Profile Routes end

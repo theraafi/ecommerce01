@@ -281,14 +281,14 @@
 
                                             <label class="col-sm-4 col-form-label">Phone Number</label>
                                             <div class="col-sm-6">
+
+                                                <input type="tel" class="form-control" placeholder="Enter Here"
+                                                    name="phone_number">
                                                 @if (session('number_added'))
                                                     <div class="text-success mt-2">
                                                         {{ session('number_added') }}
                                                     </div>
                                                 @endif
-                                                <input type="number" class="form-control" placeholder="Enter Here"
-                                                    name="phone_number">
-
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-10 text-center">
@@ -303,12 +303,15 @@
                                     <div class="form-group row">
                                         <div class="col-sm-10 mt-2">
                                             @if ($verification_status)
-                                                <a href="#" class="btn btn-primary btn-sm btn-success">Verified</a>
+                                                <a href="#"
+                                                    class="btn btn-primary btn-sm btn-success">Verified</a>
                                             @else
-                                                <a href="#" class="btn btn-primary btn-sm btn-danger text-center">
+                                                <a href="#"
+                                                    class="btn btn-primary btn-sm btn-danger text-center">
                                                     Not Verified
                                                 </a>
-                                                <a href="{{ url('phone/number/verify') }}" class="btn btn-primary btn-sm btn-success text-center">
+                                                <a href="{{ url('phone/number/verify') }}"
+                                                    class="btn btn-primary btn-sm btn-success text-center">
                                                     Verify Now
                                                 </a>
                                                 @if (session('otp_sent'))
@@ -320,24 +323,34 @@
                                             @endif
 
                                             @if (!$verification_status)
-                                                <div class="form-group row mt-3">
-                                                    <label class="col-lg-5 col-form-label">Your OTP</label>
-                                                    <div class="col-lg-7">
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter Here" name="code">
-
-                                                    </div>
-                                                </div>
                                                 <form action="{{ url('code/confirm') }}" method="POST">
-                                                    @csrf
+                                                    <div class="form-group row mt-3">
+                                                        @csrf
+                                                        <label class="col-lg-5 col-form-label">Your OTP</label>
+                                                        <div class="col-lg-7">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Enter Here" name="code">
 
-                                                    <div class="col-lg-6 text-center">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Confirm OTP
-                                                        </button>
+                                                        </div>
+                                                        <div class="col-lg-6 text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Confirm OTP
+                                                            </button>
+                                                        </div>
                                                     </div>
-
                                                 </form>
+                                                <div class="col-lg-6 text-center">
+                                                    <a href="{{ url('resend/code') }}"
+                                                        class="btn btn-primary btn-dark text-center">
+                                                        Resend OTP
+                                                    </a>
+                                                </div>
+
+                                                @if (session('otp_resent'))
+                                                    <div class="text-success text-center mb-2">
+                                                        {{ session('otp_resent') }}
+                                                    </div>
+                                                @endif
                                                 @if (session('otp_mismatch'))
                                                     <div class="text-success text-center mb-2">
                                                         {{ session('otp_mismatch') }}
@@ -345,10 +358,11 @@
                                                 @endif
                                             @endif
 
-                                            <form action="{{ url('resend/code') }}" method="POST">
+                                            {{-- <form action="{{ url('resend/code') }}" method="POST">
                                                 @csrf
 
                                                 <div class="col-lg-6 text-center">
+
                                                     <button type="submit" class="btn btn-primary">
                                                         Resend OTP
                                                     </button>
@@ -359,7 +373,7 @@
                                                     @endif
                                                 </div>
 
-                                            </form>
+                                            </form> --}}
 
                                         </div>
                                     </div>

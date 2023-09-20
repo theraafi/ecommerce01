@@ -138,12 +138,22 @@ class ProfileController extends Controller
         $p = explode("|", $smsresult);
         $sendstatus = $p[0];
 
-        Verification::insert([
-            "user_id" => auth()->user()->id,
-            "phone_number" => $number,
-            "code" => $random,
-            "created_at" => Carbon::now(),
-        ]);
+
+        if (Verification::where('user_id', auth()->user()->id)->exists()) {
+            Verification::where('user_id', auth()->user()->id)->update([
+                "user_id" => auth()->user()->id,
+                "phone_number" => $number,
+                "code" => $random,
+            ]);
+        }
+        else {
+            Verification::insert([
+                "user_id" => auth()->user()->id,
+                "phone_number" => $number,
+                "code" => $random,
+                "created_at" => Carbon::now(),
+            ]);
+        }
         return back()->with('otp_sent', 'Your OTP has been sent through sms');
     }
 
@@ -151,8 +161,7 @@ class ProfileController extends Controller
 
     // Verificationm code confirmation start
     public function code_confirm(Request $request){
-        // echo $request->code;
-        // echo Verification::where('user_id', auth()->user()->id)->first()->code;
+
         if ($request->code==Verification::where('user_id', auth()->user()->id)->first()->code) {
             Verification::where('user_id', auth()->user()->id)->update([
                 'status' => true,
@@ -161,6 +170,7 @@ class ProfileController extends Controller
         }
         else {
             return back()->with('otp_mismatch', "OTP doesn't match");
+            // echo Verification::where('user_id', auth()->user()->id)->first()->code;
             // echo "OTP doesn't match";
         }
     }
@@ -191,6 +201,8 @@ class ProfileController extends Controller
         // echo $request->code;
         // echo Verification::where('user_id', auth()->user()->id)->first()->code;
         Verification::where('user_id', auth()->user()->id)->update([
+            "user_id" => auth()->user()->id,
+            "phone_number" => $number,
             "code" => $random,
         ]);
         return back()->with('otp_resent', 'New OTP Sent');
