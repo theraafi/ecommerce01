@@ -742,6 +742,7 @@
                                     {{-- condition for profile photo end --}}
 									<div class="header-info">
 										<span class="text-black"><strong>{{ Auth::user()->name }}</strong></span>
+										<p class="fs-12 mb-0"> {{ Auth::user()->role }} </p>
 										<p class="fs-12 mb-0"> {{ Auth::user()->email }} </p>
 									</div>
                                 </a>

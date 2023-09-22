@@ -26,9 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (auth()->user()->role=='customer') {
+            return view('frontend.customer_dashboard');
+        }
+        else {
+            return view('home');
+        }
+
     }
-    
+
 
 
 }

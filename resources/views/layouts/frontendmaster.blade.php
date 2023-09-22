@@ -94,7 +94,7 @@
                     <div class="row align-items-center">
                         <div class="col col-lg-3 col-md-3 col-sm-12">
                             <div class="brand_logo">
-                                <a class="brand_link" href="index.html">
+                                <a class="brand_link" href="{{ route('index') }}">
                                     <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png" srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x" alt>
                                 </a>
                             </div>
@@ -252,7 +252,7 @@
                         <div class="col col-lg-4 col-md-6 col-sm-6">
                             <div class="footer_widget footer_about">
                                 <div class="brand_logo">
-                                    <a class="brand_link" href="index.html">
+                                    <a class="brand_link" href="{{ route('index') }}">
                                         <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png" srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x" alt="logo_not_found">
                                     </a>
                                 </div>
@@ -361,6 +361,9 @@
 
     <!-- custom - main-js -->
     <script src="{{ asset('frontend_assets') }}/js/main.js"></script>
+
+    {{-- reCaptcha --}}
+    {!! NoCaptcha::renderJs() !!}
 
 </body>
 </html>

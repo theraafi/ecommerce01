@@ -23,6 +23,8 @@ Route::get('/account', [App\Http\Controllers\FrontendController::class, 'account
 
 // Customer Controller start
 Route::post('/customerregistration', [App\Http\Controllers\CustomerController::class, 'customerregistration'])->name('customerregistration');
+Route::post('/customerlogin', [App\Http\Controllers\CustomerController::class, 'customerlogin'])->name('customerlogin');
+Route::post('/customerdashboard', [App\Http\Controllers\CustomerController::class, 'customerdashboard'])->name('customerdashboard');
 // Customer Controller end
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

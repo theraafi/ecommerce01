@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- sidebar cart - start
-                        ================================================== -->
+                                            ================================================== -->
     <div class="sidebar-menu-wrapper">
         <div class="cart_sidebar">
             <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -65,10 +65,10 @@
         <div class="cart_overlay"></div>
     </div>
     <!-- sidebar cart - end
-                        ================================================== -->
+                                            ================================================== -->
 
     <!-- breadcrumb_section - start
-                        ================================================== -->
+                                            ================================================== -->
     <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
@@ -78,10 +78,10 @@
         </div>
     </div>
     <!-- breadcrumb_section - end
-                        ================================================== -->
+                                            ================================================== -->
 
     <!-- register_section - start
-                        ================================================== -->
+                                            ================================================== -->
     <section class="register_section section_space">
         <div class="container">
             <div class="row justify-content-center">
@@ -89,25 +89,31 @@
 
                     <ul class="nav register_tabnav ul_li_center" role="tablist">
                         <li role="presentation">
-                            <button class="active" data-bs-toggle="tab" data-bs-target="#signin_tab" type="button"
-                                role="tab" aria-controls="signin_tab" aria-selected="true">Sign In</button>
+                            <button data-bs-toggle="tab" data-bs-target="#signin_tab" type="button" role="tab"
+                                aria-controls="signin_tab" aria-selected="false">Sign In</button>
                         </li>
                         <li role="presentation">
-                            <button data-bs-toggle="tab" data-bs-target="#signup_tab" type="button" role="tab"
-                                aria-controls="signup_tab" aria-selected="false">Register</button>
+                            <button class="active" data-bs-toggle="tab" data-bs-target="#signup_tab" type="button"
+                                role="tab" aria-controls="signup_tab" aria-selected="true">Register</button>
                         </li>
                     </ul>
 
                     {{-- Login --}}
                     <div class="register_wrap tab-content">
-                        <div class="tab-pane fade show active" id="signin_tab" role="tabpanel">
-                            <form action="#">
+                        <div class="tab-pane fade" id="signin_tab" role="tabpanel">
+                            <form action="{{ route('customerlogin') }}" method="POST">
                                 @csrf
+                                @error('login_error')
+                                    <span class="text-danger text-center">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
                                 <div class="form_item_wrap">
-                                    <h3 class="input_title">User Name*</h3>
+                                    <h3 class="input_title">Email*</h3>
                                     <div class="form_item">
                                         <label for="username_input"><i class="fas fa-user"></i></label>
-                                        <input id="username_input" type="text" name="username" placeholder="User Name">
+                                        <input id="username_input" type="email" name="email"
+                                            placeholder="Enter Email Address">
                                     </div>
                                 </div>
 
@@ -130,10 +136,20 @@
                         </div>
 
                         {{-- Register --}}
-                        <div class="tab-pane fade" id="signup_tab" role="tabpanel">
-                            <form action="{{ route('customerregistration') }}" method="POST" >
+                        <div class="tab-pane fade show active" id="signup_tab" role="tabpanel">
+                            <form action="{{ route('customerregistration') }}" method="POST">
                                 @csrf
+                                @if (session('registration_success'))
+                                    <div class="alert alert-success text-center mb-2">
+                                        {{ session('registration_success') }}
+                                    </div>
+                                @endif
                                 <div class="form_item_wrap">
+                                    @error('name')
+                                        <span class="text-danger text-center">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                     <h3 class="input_title">User Name*</h3>
                                     <div class="form_item">
                                         <label for="username_input2"><i class="fas fa-user"></i></label>
@@ -142,6 +158,11 @@
                                     </div>
                                 </div>
                                 <div class="form_item_wrap">
+                                    @error('email')
+                                        <span class="text-danger text-center">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                     <h3 class="input_title">Email*</h3>
                                     <div class="form_item">
                                         <label for="email_input"><i class="fas fa-envelope"></i></label>
@@ -150,14 +171,25 @@
                                 </div>
 
                                 <div class="form_item_wrap">
+                                    @error('phone_number')
+                                        <span class="text-danger text-center">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                     <h3 class="input_title">Phone Number*</h3>
                                     <div class="form_item">
                                         <label for="email_input"><i class="fas fa-phone"></i></label>
-                                        <input id="email_input" type="tel" name="phone_number" placeholder="Phone Number">
+                                        <input id="email_input" type="tel" name="phone_number"
+                                            placeholder="Phone Number">
                                     </div>
                                 </div>
 
                                 <div class="form_item_wrap">
+                                    @error('password')
+                                        <span class="text-danger text-center">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
                                     <h3 class="input_title">Password*</h3>
                                     <div class="form_item">
                                         <label for="password_input2"><i class="fas fa-lock"></i></label>
@@ -175,6 +207,17 @@
                                     </div>
                                 </div>
 
+                                <div class="form_item_wrap">
+                                    @error('g-recaptcha-response')
+                                        <span class="text-danger text-center">
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                    <div class="form_item">
+                                        {!! NoCaptcha::display() !!}
+                                    </div>
+                                </div>
+
 
                                 <div class="form_item_wrap">
                                     <button type="submit" class="btn btn_secondary">Register</button>
@@ -187,5 +230,5 @@
         </div>
     </section>
     <!-- register_section - end
-                        ================================================== -->
+                                            ================================================== -->
 @endsection
