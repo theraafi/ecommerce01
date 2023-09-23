@@ -31,7 +31,7 @@ class CustomerController extends Controller
     }
     public function customerlogin(Request $request){
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // return redirect('home');
+            return redirect('home');
         }
         else {
             return back()->with('login_error', 'You are not registered as a customer');

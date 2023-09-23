@@ -27,7 +27,7 @@ Route::post('/customerlogin', [App\Http\Controllers\CustomerController::class, '
 Route::post('/customerdashboard', [App\Http\Controllers\CustomerController::class, 'customerdashboard'])->name('customerdashboard');
 // Customer Controller end
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 // Profile Routes start
 

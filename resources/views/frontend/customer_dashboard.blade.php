@@ -98,6 +98,10 @@
                         <button class="nav-link text-start w-100" id="v-pills-messages-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-messages" type="button" role="tab"
                             aria-controls="v-pills-messages" aria-selected="false">My Orders</button>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button class="nav-link text-start w-100">Logout</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-9">

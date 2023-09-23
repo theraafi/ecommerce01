@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Stowaa -  Ecommerce HTML Template</title>
+    <title>Stowaa - Ecommerce HTML Template</title>
     <link rel="shortcut icon" href="{{ asset('frontend_assets') }}/images/logo/favourite_icon_1.png">
 
     <!-- fraimwork - css include -->
@@ -68,7 +69,8 @@
                                 <li>
                                     <div class="select_option">
                                         <div class="flug_wrap">
-                                            <img src="{{ asset('frontend_assets') }}/images/flug/flug_uk.png" alt="image_not_found">
+                                            <img src="{{ asset('frontend_assets') }}/images/flug/flug_uk.png"
+                                                alt="image_not_found">
                                         </div>
                                         <select>
                                             <option data-display="Select Option">Select Your Language</option>
@@ -95,7 +97,8 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12">
                             <div class="brand_logo">
                                 <a class="brand_link" href="{{ route('index') }}">
-                                    <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png" srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x" alt>
+                                    <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png"
+                                        srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x" alt>
                                 </a>
                             </div>
                         </div>
@@ -122,14 +125,23 @@
                             </form>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12">
-                            <button class="mobile_menu_btn2 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="mobile_menu_btn2 navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown"
+                                aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="fal fa-bars"></i>
                             </button>
                             <button type="button" class="cart_btn">
-                               <ul class="header_icons_group ul_li_right">
+                                <ul class="header_icons_group ul_li_right">
                                     <li>
                                         <a href="wishlist.html">
-                                            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" stroke="#051d43" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#2329D6"> <title>Favourite</title> <path d="M12,21 L10.55,19.7051771 C5.4,15.1242507 2,12.1029973 2,8.39509537 C2,5.37384196 4.42,3 7.5,3 C9.24,3 10.91,3.79455041 12,5.05013624 C13.09,3.79455041 14.76,3 16.5,3 C19.58,3 22,5.37384196 22,8.39509537 C22,12.1029973 18.6,15.1242507 13.45,19.7149864 L12,21 Z"/> </svg>
+                                            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="30px"
+                                                height="30px" viewBox="0 0 24 24" stroke="#051d43" stroke-width="1"
+                                                stroke-linecap="square" stroke-linejoin="miter" fill="none"
+                                                color="#2329D6">
+                                                <title>Favourite</title>
+                                                <path
+                                                    d="M12,21 L10.55,19.7051771 C5.4,15.1242507 2,12.1029973 2,8.39509537 C2,5.37384196 4.42,3 7.5,3 C9.24,3 10.91,3.79455041 12,5.05013624 C13.09,3.79455041 14.76,3 16.5,3 C19.58,3 22,5.37384196 22,8.39509537 C22,12.1029973 18.6,15.1242507 13.45,19.7149864 L12,21 Z" />
+                                            </svg>
                                             <span class="wishlist_counter">3</span>
                                         </a>
                                     </li>
@@ -139,7 +151,7 @@
                                             <small class="cart_counter">3</small>
                                         </span>
                                     </li>
-                               </ul>
+                                </ul>
                             </button>
                         </div>
                     </div>
@@ -151,24 +163,43 @@
                     <div class="row align-items-center">
                         <div class="col col-md-3">
                             <div class="allcategories_dropdown">
-                                <button class="allcategories_btn" type="button" data-bs-toggle="collapse" data-bs-target="#allcategories_collapse" aria-expanded="false" aria-controls="allcategories_collapse">
-                                    <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24" aria-labelledby="statsIconTitle" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="statsIconTitle">Stats</title> <path d="M6 7L15 7M6 12L18 12M6 17L12 17"/> </svg>
+                                <button class="allcategories_btn" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#allcategories_collapse" aria-expanded="false"
+                                    aria-controls="allcategories_collapse">
+                                    <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px"
+                                        height="32px" viewBox="0 0 24 24" aria-labelledby="statsIconTitle"
+                                        stroke="#000" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" fill="none" color="#000">
+                                        <title id="statsIconTitle">Stats</title>
+                                        <path d="M6 7L15 7M6 12L18 12M6 17L12 17" />
+                                    </svg>
                                     Browse categories
                                 </button>
                                 <div class="allcategories_collapse" id="allcategories_collapse">
                                     <div class="card card-body">
                                         <ul class="allcategories_list ul_li_block">
-                                            <li><a href="shop_grid.html"><i class="icon icon-Starship"></i> New Arrival Products</a></li>
-                                            <li><a href="shop_list.html"><i class="icon icon-WorldWide"></i> Most Popular Products</a></li>
-                                            <li><a href="shop_grid.html"><i class="icon icon-Star"></i> Deals of the day</a></li>
-                                            <li><a href="shop_list.html"><i class="icon icon-Phone"></i> Mobile Accessories</a></li>
-                                            <li><a href="shop_grid.html"><i class="icon icon-DesktopMonitor"></i> Computer Accessories</a></li>
-                                            <li><a href="shop_list.html"><i class="icon icon-Bulb"></i> Consumer Electronics</a></li>
-                                            <li><a href="shop_grid.html"><i class="icon icon-Car"></i> Automobiles & Motorcycles</a></li>
-                                            <li><a href="shop_list.html"><i class="icon icon-Phone"></i> Mobile Accessories</a></li>
-                                            <li><a href="shop_grid.html"><i class="icon icon-DesktopMonitor"></i> Computer Accessories</a></li>
-                                            <li><a href="shop_list.html"><i class="icon icon-Bulb"></i> Consumer Electronics</a></li>
-                                            <li><a href="shop_grid.html"><i class="icon icon-Car"></i> Automobiles & Motorcycles</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-Starship"></i> New
+                                                    Arrival Products</a></li>
+                                            <li><a href="shop_list.html"><i class="icon icon-WorldWide"></i> Most
+                                                    Popular Products</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-Star"></i> Deals of the
+                                                    day</a></li>
+                                            <li><a href="shop_list.html"><i class="icon icon-Phone"></i> Mobile
+                                                    Accessories</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-DesktopMonitor"></i>
+                                                    Computer Accessories</a></li>
+                                            <li><a href="shop_list.html"><i class="icon icon-Bulb"></i> Consumer
+                                                    Electronics</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-Car"></i> Automobiles &
+                                                    Motorcycles</a></li>
+                                            <li><a href="shop_list.html"><i class="icon icon-Phone"></i> Mobile
+                                                    Accessories</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-DesktopMonitor"></i>
+                                                    Computer Accessories</a></li>
+                                            <li><a href="shop_list.html"><i class="icon icon-Bulb"></i> Consumer
+                                                    Electronics</a></li>
+                                            <li><a href="shop_grid.html"><i class="icon icon-Car"></i> Automobiles &
+                                                    Motorcycles</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -194,18 +225,36 @@
 
                         <div class="col col-md-3">
                             <ul class="header_icons_group ul_li_right">
-                                {{-- <li>
-                                    <a href="#">Jon Doe</a>
-                                </li> --}}
-                                <li>
-                                    <a href="{{ route('account') }}">Sign In/ Register</a>
-                                </li>
 
-                                <li>
-                                    <a href="account.html">
-                                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" stroke="#051d43" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#2329D6"> <title id="personIconTitle">Person</title> <path d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20"/> </svg>
-                                    </a>
-                                </li>
+                                @guest
+                                    <li>
+                                        <a href="{{ route('account') }}">Log In/ Register</a>
+                                    </li>
+                                @endguest
+
+                                @auth
+                                    <li>
+                                    <a href="#"> {{ Auth::user()->name }} </a>
+                                    </li>
+                                    <li>
+                                    <a href="{{ route('logout') }}"> Logout </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('account') }} ">
+                                            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="30px"
+                                                height="30px" viewBox="0 0 24 24" stroke="#051d43" stroke-width="1"
+                                                stroke-linecap="square" stroke-linejoin="miter" fill="none"
+                                                color="#2329D6">
+                                                <title id="personIconTitle">Person</title>
+                                                <path
+                                                    d="M4,20 C4,17 8,17 10,15 C11,14 8,14 8,9 C8,5.667 9.333,4 12,4 C14.667,4 16,5.667 16,9 C16,14 13,14 14,15 C16,17 20,17 20,20" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                @endauth
+
+
                             </ul>
                         </div>
                     </div>
@@ -214,29 +263,29 @@
         </header>
         <!-- header_section - end
         ================================================== -->
-@yield('content')
+        @yield('content')
 
-            <!-- newsletter_section - start
+        <!-- newsletter_section - start
             ================================================== -->
-            <section class="newsletter_section">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col col-lg-6">
-                            <h2 class="newsletter_title text-white">Sign Up for Newsletter </h2>
-                            <p>Get E-mail updates about our latest products and special offers.</p>
-                        </div>
-                        <div class="col col-lg-6">
-                            <form action="#!">
-                                <div class="newsletter_form">
-                                    <input type="email" name="email" placeholder="Enter your email address">
-                                    <button type="submit" class="btn btn_secondary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
+        <section class="newsletter_section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col col-lg-6">
+                        <h2 class="newsletter_title text-white">Sign Up for Newsletter </h2>
+                        <p>Get E-mail updates about our latest products and special offers.</p>
+                    </div>
+                    <div class="col col-lg-6">
+                        <form action="#!">
+                            <div class="newsletter_form">
+                                <input type="email" name="email" placeholder="Enter your email address">
+                                <button type="submit" class="btn btn_secondary">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
-            <!-- newsletter_section - end
+            </div>
+        </section>
+        <!-- newsletter_section - end
             ================================================== -->
 
         </main>
@@ -253,7 +302,9 @@
                             <div class="footer_widget footer_about">
                                 <div class="brand_logo">
                                     <a class="brand_link" href="{{ route('index') }}">
-                                        <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png" srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x" alt="logo_not_found">
+                                        <img src="{{ asset('frontend_assets') }}/images/logo/logo_1x.png"
+                                            srcset="{{ asset('frontend_assets') }}/images/logo/logo_2x.png 2x"
+                                            alt="logo_not_found">
                                     </a>
                                 </div>
                                 <ul class="social_round ul_li">
@@ -270,11 +321,11 @@
                             <div class="footer_widget footer_useful_links">
                                 <h3 class="footer_widget_title text-uppercase">Quick Links</h3>
                                 <ul class="ul_li_block">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                     <li><a href="shop.html">Products</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Sign Up</a></li>
+                                    <li><a href="{{ route('account') }}">Login</a></li>
+                                    <li><a href="{{ route('account') }}">Sign Up</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -296,7 +347,8 @@
                             <div class="footer_widget footer_contact">
                                 <h3 class="footer_widget_title text-uppercase">Contact Onfo</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt.
                                 </p>
                                 <div class="hotline_wrap">
                                     <div class="footer_hotline">
@@ -313,8 +365,12 @@
                                     </div>
                                 </div>
                                 <ul class="store_btns_group ul_li">
-                                    <li><a href="#!"><img src="{{ asset('frontend_assets') }}/images/app_store.png" alt="app_store"></a></li>
-                                    <li><a href="#!"><img src="{{ asset('frontend_assets') }}/images/play_store.png" alt="play_store"></a></li>
+                                    <li><a href="#!"><img
+                                                src="{{ asset('frontend_assets') }}/images/app_store.png"
+                                                alt="app_store"></a></li>
+                                    <li><a href="#!"><img
+                                                src="{{ asset('frontend_assets') }}/images/play_store.png"
+                                                alt="play_store"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -334,7 +390,8 @@
                         <div class="col col-md-6">
                             <div class="payment_method">
                                 <h4>Payment:</h4>
-                                <img src="{{ asset('frontend_assets') }}/images/payments_icon.png" alt="image_not_found">
+                                <img src="{{ asset('frontend_assets') }}/images/payments_icon.png"
+                                    alt="image_not_found">
                             </div>
                         </div>
                     </div>
@@ -366,4 +423,5 @@
     {!! NoCaptcha::renderJs() !!}
 
 </body>
+
 </html>
