@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- sidebar cart - start
-                ================================================== -->
+                        ================================================== -->
     <div class="sidebar-menu-wrapper">
         <div class="cart_sidebar">
             <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -66,10 +66,10 @@
         <div class="cart_overlay"></div>
     </div>
     <!-- sidebar cart - end
-                            ================================================== -->
+                                    ================================================== -->
 
     <!-- breadcrumb_section - start
-                            ================================================== -->
+                                    ================================================== -->
     <div class="breadcrumb_section">
         <div class="container">
             <ul class="breadcrumb_nav ul_li">
@@ -79,10 +79,10 @@
         </div>
     </div>
     <!-- breadcrumb_section - end
-                            ================================================== -->
+                                    ================================================== -->
 
     <!-- account_section - start
-                            ================================================== -->
+                                    ================================================== -->
     <section class="account_section section_space">
         <div class="container">
             <div class="row">
@@ -98,10 +98,15 @@
                         <button class="nav-link text-start w-100" id="v-pills-messages-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-messages" type="button" role="tab"
                             aria-controls="v-pills-messages" aria-selected="false">My Orders</button>
-                        <form action="{{route('logout')}}" method="POST">
+                        <a href="{{ route('password.request') }}">
+                            <button class="nav-link text-start w-100">Reset Password</button>
+                        </a>
+
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="nav-link text-start w-100">Logout</button>
                         </form>
+
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -116,11 +121,13 @@
                             <form class="row g-3 p-2">
                                 <div class="col-md-6">
                                     <label for="inputnamel4" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="inputnamel4" name="name" placeholder="{{ Auth::user()->name }}">
+                                    <input type="text" class="form-control" id="inputnamel4" name="name"
+                                        placeholder="{{ Auth::user()->name }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="{{ Auth::user()->email }}">
+                                    <input type="email" class="form-control" id="inputEmail4" name="email"
+                                        placeholder="{{ Auth::user()->email }}">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="inputPassword4" class="form-label">Password</label>
@@ -164,5 +171,5 @@
         </div>
     </section>
     <!-- account_section - end
-                    ================================================== -->
+                            ================================================== -->
 @endsection

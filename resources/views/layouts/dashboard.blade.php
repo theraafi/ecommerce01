@@ -822,6 +822,16 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-layer-1"></i>
+                        <span class="nav-text">Category</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ route('category.create') }}">Add Category</a></li>
+                        <li><a href="{{ route('category.index') }}">View Category</a></li>
+
+                    </ul>
+                </li>
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-controls-3"></i>
 							<span class="nav-text">Charts</span>
 						</a>
@@ -898,26 +908,8 @@
                             <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
                             <li><a href="table-datatable-basic.html">Datatable</a></li>
                         </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-381-layer-1"></i>
-							<span class="nav-text">Pages</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./page-lock-screen.html">Lock Screen</a></li>
-                        </ul>
-                    </li>
+                    </li> --}}
+
                 </ul>
 				<div class="add-menu-sidebar">
 					<img src="{{ asset('dashboard_assets') }}/images/calendar.png" alt="" class="mr-3">

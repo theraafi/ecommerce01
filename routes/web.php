@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController};
 
 
 
@@ -43,3 +44,9 @@ Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::clas
 // Profile Routes end
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+// Category Routes start
+Route::resource('/category', CategoryController::class);
+
+// Category Routes end
