@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- sidebar cart - start
-                ================================================== -->
+                    ================================================== -->
     <div class="sidebar-menu-wrapper">
         <div class="cart_sidebar">
             <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -67,10 +67,10 @@
         <div class="cart_overlay"></div>
     </div>
     <!-- sidebar cart - end
-                ================================================== -->
+                    ================================================== -->
 
     <!-- slider_section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="slider_section">
         <div class="container">
             <div class="row">
@@ -127,10 +127,10 @@
         </div>
     </section>
     <!-- slider_section - end
-                ================================================== -->
+                    ================================================== -->
 
     <!-- policy_section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="policy_section">
         <div class="container">
             <div class="row">
@@ -191,11 +191,11 @@
 
     </section>
     <!-- policy_section - end
-                ================================================== -->
+                    ================================================== -->
 
 
     <!-- products-with-sidebar-section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="products-with-sidebar-section">
         <div class="container">
             <div class="row">
@@ -404,19 +404,28 @@
                             <h3>Top categories</h3>
                         </div>
                         <div class="top_category_carousel2" data-slick='{"dots": false}'>
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_1.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">Men's Watches</span>
-                                    </a>
+                            @foreach ($categories as $category)
+                                <div class="slider_item">
+                                    <div class="category_boxed">
+                                        <a href="#!">
+                                            <span class="item_image">
+                                                @if ($category->category_photo != 'null')
+                                                    <img src="{{ asset('uploads/category_photo') }}/{{ $category->category_photo }}"
+                                                        alt="#" style=""
+                                                        class="img-fluid w-100">
+                                                @else
+                                                    <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png"
+                                                        class="img-fluid rounded-circle w-100" alt="#"
+                                                        style="">
+                                                @endif
+                                            </span>
+                                            <span class="item_title">{{ $category->category_name }}</span>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <div class="slider_item">
+                            {{-- <div class="slider_item">
                                 <div class="category_boxed">
                                     <a href="#!">
                                         <span class="item_image">
@@ -498,7 +507,7 @@
                                         <span class="item_title">CCTV Camera</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="carousel_nav carousel-nav-top-right">
                             <button type="button" class="tc_left_arrow"><i
@@ -767,11 +776,11 @@
         </div> <!-- end container  -->
     </section>
     <!-- products-with-sidebar-section - end
-                ================================================== -->
+                    ================================================== -->
 
 
     <!-- promotion_section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="promotion_section">
         <div class="container">
             <div class="row promotion_banner_wrap">
@@ -806,10 +815,10 @@
         </div>
     </section>
     <!-- promotion_section - end
-                ================================================== -->
+                    ================================================== -->
 
     <!-- new_arrivals_section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="new_arrivals_section section_space">
         <div class="container">
             <div class="sec-title-link">
@@ -946,10 +955,10 @@
         </div>
     </section>
     <!-- new_arrivals_section - end
-                ================================================== -->
+                    ================================================== -->
 
     <!-- brand_section - start
-                ================================================== -->
+                    ================================================== -->
     <div class="brand_section pb-0">
         <div class="container">
             <div class="brand_carousel">
@@ -987,10 +996,10 @@
         </div>
     </div>
     <!-- brand_section - end
-                ================================================== -->
+                    ================================================== -->
 
     <!-- viewed_products_section - start
-                ================================================== -->
+                    ================================================== -->
     <section class="viewed_products_section section_space">
         <div class="container">
 
@@ -1224,5 +1233,5 @@
         </div>
     </section>
     <!-- viewed_products_section - end
-                ================================================== -->
+                    ================================================== -->
 @endsection

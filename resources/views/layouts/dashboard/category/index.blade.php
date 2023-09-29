@@ -1,53 +1,67 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="col-lg-12">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Table Bordered</h4>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-responsive-sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Kolor Tea Shirt For Man</td>
-                            <td><span class="badge badge-primary">Sale</span>
-                            </td>
-                            <td>January 22</td>
-                            <td class="color-primary">$21.56</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Kolor Tea Shirt For Women</td>
-                            <td><span class="badge badge-success">Tax</span>
-                            </td>
-                            <td>January 30</td>
-                            <td class="color-success">$55.32</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Blue Backpack For Baby</td>
-                            <td><span class="badge badge-danger">Extended</span>
-                            </td>
-                            <td>January 25</td>
-                            <td class="color-danger">$14.85</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Categories</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                                <th>Category Slug</th>
+                                <th>Category Photo</th>
+                                <th>Created at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($categories as $category)
+                                <tr>
+                                    <td><strong> {{ $category->id }} </strong></td>
+                                    <td>
+                                        <div class="d-flex align-items-center"><span class="w-space-no">
+                                                {{ $category->category_name }} </span></div>
+                                    </td>
+                                    <td> {{ $category->category_slug }} </td>
+                                    <td class="text-center">
+
+                                        @if ($category->category_photo != 'null')
+                                            <img src="{{ asset('uploads/category_photo') }}/{{ $category->category_photo }}"
+                                                alt="#" style="width: 50px; height:50px" class="img-fluid">
+                                        @else
+                                            <img src="{{ asset('dashboard_assets') }}/images/default_profile_photo.png"
+                                                class="img-fluid rounded-circle" alt="#"
+                                                style="width: 50px; height:50px">
+                                        @endif
+
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center"> {{ $category->created_at }} </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                    class="fa fa-pencil"></i></a>
+                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                    class="fa fa-trash"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <td>
+                                    <div class="alert alert-info">
+                                        No Categories Found
+                                    </div>
+                                </td>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
-
