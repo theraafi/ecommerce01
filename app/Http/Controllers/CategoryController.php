@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use PhpParser\Node\Expr\Cast\String_;
 
 class CategoryController extends Controller
 {
@@ -78,15 +79,19 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, string $id)
     {
         $request->validate([
             'category_name' => 'required',
         ]);
 
-        Category::find($category->id)->update([
-            'category_name' => $request->category_name,
+        Category::find($id)->update([
+            "category_name" => $request->category_name,
+
         ]);
+
+
+
     }
 
     /**
