@@ -409,7 +409,7 @@
                                     <div class="category_boxed">
                                         <a href="#!">
                                             <span class="item_image">
-                                                @if ($category->category_photo != 'null')
+                                                @if ($category->category_photo != 'null' )
                                                     <img src="{{ asset('uploads/category_photo') }}/{{ $category->category_photo }}"
                                                         alt="#" style=""
                                                         class="img-fluid w-100">

@@ -37,7 +37,7 @@ class CategoryController extends Controller
         $request->validate([
             "category_name" => 'required',
             "category_slug" => 'required',
-            // "category_photo" => 'required|image',
+            "category_photo" => 'required|image',
         ]);
 
         // Category Image start
@@ -70,24 +70,31 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('layouts.dashboard.category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'category_name' => 'required',
+        ]);
+
+        Category::find($category->id)->update([
+            'category_name' => $request->category_name,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        Category::find($category->id)->delete();
+        return back();
     }
 }

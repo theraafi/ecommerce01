@@ -45,7 +45,6 @@ Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::clas
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
 // Category Routes start
 Route::resource('/category', CategoryController::class);
 
