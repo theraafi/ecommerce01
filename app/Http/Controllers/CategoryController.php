@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view("layouts.dashboard.category.index",[
+        return view("layouts.dashboard.category.index", [
             'categories' => Category::all(),
         ]);
     }
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         ]);
 
         // Category Image start
-        $category_photo_name = $request->category_name. "_" . date('Y-m-d') . "." . $request->file('category_photo')->getClientOriginalExtension();
+        $category_photo_name = $request->category_name . "_" . date('Y-m-d') . "." . $request->file('category_photo')->getClientOriginalExtension();
 
         $img = Image::make($request->file('category_photo'))->resize(200, 200);
         $img->save(base_path('public/uploads/category_photo/' . $category_photo_name), 80);
@@ -81,18 +81,43 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'category_name' => 'required',
-        ]);
+        // return $request;
+        // $request->validate([
+        //     'category_name' => 'required',
+        // ]);
 
         Category::find($id)->update([
             "category_name" => $request->category_name,
-
+            "category_slug" => Str::slug($request->category_slug),
         ]);
 
+        if ($request->hasFile('category_photo')) {
+            unlink(base_path('public/uploads/category_photo/' . Category::find($id)->category_photo) );
 
+            $category_photo_name = $request->category_name . "_" . date('Y-m-d') . "." . $request->file('category_photo')->getClientOriginalExtension();
 
+            $img = Image::make($request->file('category_photo'))->resize(200, 200);
+            $img->save(base_path('public/uploads/category_photo/' . $category_photo_name), 80);
+
+            Category::find($id)->update([
+                "category_photo" => $category_photo_name,
+            ]);
+        }
+        return back();
     }
+    // public function slug_change(Request $request, string $id)
+    // {
+    //     return $id;
+    //     // $request->validate([
+    //     //     'category_slug' => 'required',
+    //     // ]);
+
+    //     // Category::find($id)->update([
+    //     //     "category_slug" => $request->category_slug,
+
+    //     // ]);
+    //     // return back()->with('category_slug_updated', 'Category Slug Updated Successfully');
+    // }
 
     /**
      * Remove the specified resource from storage.

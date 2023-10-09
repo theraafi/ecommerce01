@@ -45,7 +45,9 @@ Route::get('/phone/number/verify', [App\Http\Controllers\ProfileController::clas
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+
 // Category Routes start
 Route::resource('/category', CategoryController::class);
+// Route::post('/category/slug/change', [App\Http\Controllers\CategoryController::class, 'slug_change'])->name('slug_change');
 
 // Category Routes end
