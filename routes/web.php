@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('index');
 Route::get('/about', [App\Http\Controllers\FrontendController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact'])->name('contact');
+Route::post('/contactformpost', [App\Http\Controllers\FrontendController::class, 'contactformpost'])->name('contactformpost');
 Route::get('/account', [App\Http\Controllers\FrontendController::class, 'account'])->name('account');
 
 // Frontend Controllers end

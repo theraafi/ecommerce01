@@ -143,7 +143,8 @@
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.</p>
-                        <form action="#">
+                        <form action="{{ route('contactformpost') }}" method="POST">
+                            @csrf
                             <div class="form_item">
                                 <input id="contact-form-name" type="text" name="name" placeholder="Your Name">
                             </div>
@@ -163,8 +164,8 @@
                             <div class="form_item">
                                 <textarea id="contact-form-message" name="message" placeholder="Message"></textarea>
                             </div>
-                            <div id="form-msg"></div>
-                            <button id="contact-form-submit" type="submit" class="btn btn_dark">Send Message</button>
+
+                            <button type="submit" class="btn btn_dark">Send Message</button>
                         </form>
                     </div>
                 </div>
