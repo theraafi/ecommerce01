@@ -37,15 +37,15 @@
 
                         </div>
                         <div class="form-group row mt-5">
-                            <label class="col-sm-3 col-form-label">Old Category Name</label>
+                            <label class="col-sm-3 col-form-label">Old Category Slug</label>
                             <div class="col-sm-9">
                                 {{ $category->category_slug }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">New Category Name</label>
+                            <label class="col-sm-3 col-form-label">New Category Slug</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter Name here"
+                                <input type="text" class="form-control" value="{{ $category->category_slug }}"
                                     name="category_slug">
                             </div>
                             @error('category_name')
@@ -126,7 +126,7 @@
         </div>
     </div> --}}
 
-    
+
     {{-- <div class="col-xl-10 m-auto">
         <div class="card">
             <div class="card-header">

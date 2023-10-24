@@ -141,8 +141,7 @@
                         <div class="decoration_image">
                             <img src="{{ asset('frontend_assets') }}/images/leaf.png" alt="image_not_found">
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <form action="{{ route('contactformpost') }}" method="POST">
                             @csrf
                             <div class="form_item">
