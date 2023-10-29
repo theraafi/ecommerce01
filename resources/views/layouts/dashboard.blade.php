@@ -821,6 +821,13 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li><a class="has-arrow ai-icon" href="{{ route('users') }}" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">User List</span>
+                    </a>
+
+
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-layer-1"></i>
                         <span class="nav-text">Category</span>

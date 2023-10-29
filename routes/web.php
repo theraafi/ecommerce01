@@ -30,6 +30,8 @@ Route::post('/customerdashboard', [App\Http\Controllers\CustomerController::clas
 // Customer Controller end
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
+Route::post('/adduser', [App\Http\Controllers\HomeController::class, 'adduser'])->name('adduser');
 
 // Profile Routes start
 
