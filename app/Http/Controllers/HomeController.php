@@ -55,6 +55,6 @@ class HomeController extends Controller
             'created_at' => Carbon::now(),
             'role' => 'admin',
         ]);
-        return back();
+        return back()->with('user_added', 'User created successfully');
     }
 }

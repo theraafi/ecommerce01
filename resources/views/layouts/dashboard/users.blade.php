@@ -42,11 +42,11 @@
                                 <button type="submit" class="btn btn-primary">Add User</button>
                             </div>
                         </div>
-                        {{-- @if (session('category_added'))
+                        @if (session('user_added'))
                             <div class="text-success text-center mb-2">
-                                {{ session('category_added') }}
+                                {{ session('user_added') }}
                             </div>
-                        @endif --}}
+                        @endif
                     </form>
                 </div>
             </div>
