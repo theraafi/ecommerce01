@@ -44,12 +44,13 @@ class HomeController extends Controller
     public function adduser(Request $request)
     {
         $request->validate([
-            'admin_email' => 'unique:App/Models/User,email'
+            'admin_name' => 'required',
+            'email' => 'unique:users,email'
         ]);
 
         User::insert([
             'name' => $request->admin_name,
-            'email' => $request->admin_email,
+            'email' => $request->email,
             'password' => Str::random(8),
             'created_at' => Carbon::now(),
             'role' => 'admin',

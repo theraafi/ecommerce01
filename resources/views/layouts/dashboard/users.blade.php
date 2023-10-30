@@ -17,23 +17,23 @@
                             <label class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Enter Admin Name" name="admin_name">
-                                {{-- @error('category_name')
+                                @error('admin_name')
                                     <span class="text-danger">
                                         {{ $message }}
                                     </span>
-                                @enderror --}}
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" placeholder="Enter Admin Email"
-                                    name="admin_email">
-                                {{-- @error('category_slug')
+                                    name="email">
+                                @error('email')
                                     <span class="text-danger">
                                         {{ $message }}
                                     </span>
-                                @enderror --}}
+                                @enderror
                             </div>
                         </div>
 
