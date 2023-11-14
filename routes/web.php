@@ -3,7 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController};
+use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController, ProductController};
 
 
 
@@ -54,3 +54,9 @@ Route::resource('/category', CategoryController::class);
 // Route::post('/category/slug/change', [App\Http\Controllers\CategoryController::class, 'slug_change'])->name('slug_change');
 
 // Category Routes end
+
+// Product Routes start
+Route::resource('/product', ProductController::class);
+
+
+// Product Routes end
