@@ -19,10 +19,10 @@ return new class extends Migration
             $table->float('purchase_price', 8, 2);
             $table->float('mrp', 8, 2);
             $table->float('discounted_price', 8, 2)->nullable();
-            $table->float('short_description');
+            $table->string('short_description');
             $table->longText('long_description');
             $table->longText('additional_information');
-            $table->string('tumbnail')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
     }

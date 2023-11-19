@@ -7,6 +7,11 @@
                 <h4 class="card-title">Add Product</h4>
             </div>
             <div class="card-body">
+                @if (session('product_added'))
+                    <div class="text-success text-center mb-2">
+                        {{ session('product_added') }}
+                    </div>
+                @endif
                 <div class="basic-form">
                     <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -25,7 +30,12 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Category</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder="Enter SKU" name="category_id">
+                                <select class="form-control" name="category_id">
+                                    <option value=""> Select Category </option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"> {{ $category->category_name }} </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -52,22 +62,22 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Short Description</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" placeholder="Write Short Description"
+                                <input type="text" class="form-control" placeholder="Write Short Description"
                                     name="short_description">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Long Description</label>
                             <div class="col-sm-9">
-                                <textarea name="long_description" id="" cols="70" rows="5"></textarea>
-                                {{-- <input type="number" class="form-control" placeholder="Enter Category Name"
-                                    name="discounted_price"> --}}
+                                <input type="text" class="form-control" placeholder="Write Long Description"
+                                    name="long_description">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Additional information</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" placeholder="Write Additional information" name="additional_information">
+                                <input type="text" class="form-control" placeholder="Write Additional information"
+                                    name="additional_information">
                             </div>
                         </div>
 
@@ -75,7 +85,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Thumbnail</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control" placeholder="Password" name="tumbnail">
+                                <input type="file" class="form-control" placeholder="Thumbnail" name="thumbnail">
                             </div>
                         </div>
 
@@ -84,11 +94,11 @@
                                 <button type="submit" class="btn btn-primary">Add Product</button>
                             </div>
                         </div>
-                        {{-- @if (session('category_added'))
+                        @if (session('product_added'))
                             <div class="text-success text-center mb-2">
-                                {{ session('category_added') }}
+                                {{ session('product_added') }}
                             </div>
-                        @endif --}}
+                        @endif
                     </form>
                 </div>
             </div>

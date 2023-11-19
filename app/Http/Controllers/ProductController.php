@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -12,9 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // return view("layouts.dashboard.category.index", [
-        //     'categories' => Category::all(),
-        // ]);
+        return view("layouts.dashboard.product.index", [
+            'products' => Product::all(),
+        ]);
     }
 
     /**
@@ -22,7 +25,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view("layouts.dashboard.product.create");
+        return view("layouts.dashboard.product.create", [
+            'categories' => Category::get(['id', 'category_name']),
+        ]);
     }
 
     /**
@@ -30,7 +35,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->except('_token')+[
+            'thumbnail'=> 'null',
+        ]);
+
+        // Product Image start
+        if ($request->hasFile('thumbnail')) {
+            // unlink(base_path('public/uploads/thumbnail/' . Product::find($id)->category_photo) );
+
+            $thumbnail_photo_name = $product->name . "_" . date('Y-m-d') . "." . $request->file('thumbnail')->getClientOriginalExtension();
+
+            $img = Image::make($request->file('thumbnail'))->resize(200, 200);
+            $img->save(base_path('public/uploads/thumbnail/' . $thumbnail_photo_name), 80);
+
+            Product::find($product->id)->update([
+                "thumbnail" => $thumbnail_photo_name,
+            ]);
+        };
+        // Product Image end
+
+        return back()->with('product_added', 'Product added successfully');
     }
 
     /**
@@ -46,7 +70,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('layouts.dashboard.product.edit',compact('product'),[
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -62,6 +88,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::find($product->id)->delete();
+        return back();
     }
 }

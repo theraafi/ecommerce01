@@ -839,7 +839,7 @@
                     </ul>
 
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-381-layer-1"></i>
+                        <i class="flaticon-381-internet"></i>
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false">
