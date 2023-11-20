@@ -71,7 +71,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('layouts.dashboard.product.edit',compact('product'),[
-            'categories' => Category::all()
+            'categories' => Category::all(),
         ]);
     }
 
@@ -80,7 +80,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        Product::find($product->id)->update([
+            "name" => $request->name,
+            "category_id" => $request->category_id,
+            "purchase_price" => $request->purchase_price,
+            "mrp" => $request->mrp,
+            "discounted_price" => $request->discounted_price,
+            "short_description" => $request->short_description,
+            "long_description" => $request->long_description,
+            "additional_information" => $request->additional_information,
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            unlink(base_path('public/uploads/thumbnail/' . Product::find($product->id)->thumbnail) );
+
+            $thumbnail_photo_name = $request->name . "_" . date('Y-m-d') . "." . $request->file('thumbnail')->getClientOriginalExtension();
+
+            $img = Image::make($request->file('thumbnail'))->resize(200, 200);
+            $img->save(base_path('public/uploads/thumbnail/' . $thumbnail_photo_name), 80);
+
+            $product->update([
+                "thumbnail" => $thumbnail_photo_name,
+            ]);
+        };
+        return back()->with("product_updated","Updated Successfully");
     }
 
     /**
