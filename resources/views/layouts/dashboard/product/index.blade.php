@@ -14,7 +14,7 @@
                                 <th>#SN</th>
                                 <th>ID</th>
                                 <th>Product Name</th>
-                                <th>Category</th>
+                                <th>Category Name</th>
                                 <th>SKU</th>
                                 <th>MRP</th>
                                 <th>Thumbnail</th>
@@ -32,7 +32,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->category_id }} </span></div>
+                                                {{ $product->producttocategoryrelation->category_name }} </span></div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">

@@ -6,6 +6,7 @@ use App\Mail\ContactMail;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Product;
 
 
 class FrontendController extends Controller
@@ -14,6 +15,7 @@ class FrontendController extends Controller
     {
         return view('frontend.index', [
             'categories' => Category::all(),
+            'products' => Product::all(),
         ]);
     }
     public function about()

@@ -16,4 +16,9 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+
+    // Relationship between category & product
+    function producttocategoryrelation(){
+        return $this->hasOne(Category::class,"id","category_id");
+    }
 }

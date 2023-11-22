@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -19,6 +20,7 @@ class CategoryController extends Controller
     {
         return view("layouts.dashboard.category.index", [
             'categories' => Category::all(),
+            'products' => Product::all(),
         ]);
     }
 

@@ -17,6 +17,7 @@ class ProductController extends Controller
     {
         return view("layouts.dashboard.product.index", [
             'products' => Product::all(),
+            'categories' => Category::all(),
         ]);
     }
 
