@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-responsive-md">
+                    <table class="table table-responsive-md text-center">
                         <thead>
                             <tr>
                                 <th>#SN</th>
@@ -17,6 +17,7 @@
                                 <th>Category Name</th>
                                 <th>SKU</th>
                                 <th>MRP</th>
+                                <th>Discounted Price</th>
                                 <th>Thumbnail</th>
                                 <th>Edit</th>
                             </tr>
@@ -41,6 +42,10 @@
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
                                                 {{ $product->mrp }} </span></div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center text-center"><span class="w-space-no">
+                                                {{ $product->discounted_price }} </span></div>
                                     </td>
 
 
