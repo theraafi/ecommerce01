@@ -29,23 +29,28 @@
                                     <td><strong> {{ $product->id }} </strong></td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->name }} </span></div>
+                                                {{ $product->name }} </span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->producttocategoryrelation->category_name }} </span></div>
+                                                {{ $product->producttocategoryrelation->category_name }} </span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->sku }} </span></div>
+                                                {{ $product->sku }} </span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->mrp }} </span></div>
+                                                {{ $product->mrp }} </span>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center text-center"><span class="w-space-no">
-                                                {{ $product->discounted_price }} </span></div>
+                                                {{ $product->discounted_price }} </span>
+                                        </div>
                                     </td>
 
 
@@ -73,7 +78,8 @@
                                             <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button href="#" class="btn btn-danger shadow btn-xs sharp" type="submit">
+                                                <button href="#" class="btn btn-danger shadow btn-xs sharp"
+                                                    type="submit">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>

@@ -18,6 +18,14 @@ class FrontendController extends Controller
             'products' => Product::all(),
         ]);
     }
+
+    public function productdetails($id)
+    {
+        return view('frontend.productdetails',[
+            'products' => Product::findOrFail($id),
+        ]);
+    }
+
     public function about()
     {
         return view('frontend.about');

@@ -20,6 +20,7 @@ Route::get('/contact', [App\Http\Controllers\FrontendController::class, 'contact
 Route::post('/contactformpost', [App\Http\Controllers\FrontendController::class, 'contactformpost'])->name('contactformpost');
 Route::get('/account', [App\Http\Controllers\FrontendController::class, 'account'])->name('account');
 
+
 // Frontend Controllers end
 
 
@@ -57,6 +58,6 @@ Route::resource('/category', CategoryController::class);
 
 // Product Routes start
 Route::resource('/product', ProductController::class);
-
+Route::get('/productdetails', [App\Http\Controllers\FrontendController::class, 'productdetails'])->name('productdetails');
 
 // Product Routes end
