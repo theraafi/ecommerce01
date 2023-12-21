@@ -19,10 +19,10 @@ class FrontendController extends Controller
         ]);
     }
 
-    public function productdetails($id)
+    public function productdetails ()
     {
-        return view('frontend.productdetails',[
-            'products' => Product::findOrFail($id),
+        return view('frontend.product_details', [
+            'products' => Product::all(),
         ]);
     }
 

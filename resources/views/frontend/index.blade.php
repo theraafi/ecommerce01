@@ -221,7 +221,7 @@
                                     </div>
                                     <div class="details">
                                         <h4><a href="#"> {{ $product->name }} </a></h4>
-                                        <p><a href="#"> {{ Str::limit($product->short_description , 100) }} </a></p>
+                                        <p><a href="{{ route('productdetails', $product->id) }}"> {{ Str::limit($product->short_description , 100) }} </a></p>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>

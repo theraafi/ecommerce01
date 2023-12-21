@@ -59,7 +59,7 @@ class CategoryController extends Controller
             "created_at" => Carbon::now(),
         ]);
         // return back()->with('category_added', 'Category added successfully');
-        return redirect('category');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -105,7 +105,7 @@ class CategoryController extends Controller
                 "category_photo" => $category_photo_name,
             ]);
         }
-        return back();
+        return redirect()->route('category.index');
     }
     // public function slug_change(Request $request, string $id)
     // {
