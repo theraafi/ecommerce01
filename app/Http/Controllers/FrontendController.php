@@ -13,16 +13,17 @@ class FrontendController extends Controller
 {
     public function index()
     {
+
         return view('frontend.index', [
             'categories' => Category::all(),
-            'products' => Product::all(),
+            'products' => Product::latest()->get(),
         ]);
     }
 
-    public function productdetails ()
+    public function productdetails ($id)
     {
         return view('frontend.product_details', [
-            'products' => Product::all(),
+            'products' => Product::findOrFail($id),
         ]);
     }
 

@@ -2,11 +2,11 @@
 
 @section('content')
     <!-- main body - start
-            ================================================== -->
+                    ================================================== -->
     <main>
 
         <!-- sidebar cart - start
-                ================================================== -->
+                        ================================================== -->
         <div class="sidebar-menu-wrapper">
             <div class="cart_sidebar">
                 <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -69,10 +69,10 @@
             <div class="cart_overlay"></div>
         </div>
         <!-- sidebar cart - end
-                ================================================== -->
+                        ================================================== -->
 
         <!-- breadcrumb_section - start
-                ================================================== -->
+                        ================================================== -->
         <div class="breadcrumb_section">
             <div class="container">
                 <ul class="breadcrumb_nav ul_li">
@@ -82,10 +82,10 @@
             </div>
         </div>
         <!-- breadcrumb_section - end
-                ================================================== -->
+                        ================================================== -->
 
         <!-- product_details - start
-                ================================================== -->
+                        ================================================== -->
         <section class="product_details section_space pb-0">
             <div class="container">
                 <div class="row">
@@ -93,55 +93,70 @@
                         <div class="product_details_image">
                             <div class="details_image_carousel">
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png" alt="image_not_found">
+                                    {{-- <img src="{{ asset('uploads/thumbnail') }}/{{  }}" alt="image_not_found"> --}}
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png"
+                                        alt="image_not_found">
                                 </div>
                             </div>
 
                             <div class="details_image_carousel_nav">
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_1.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_3.png"
+                                        alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png" alt="image_not_found">
+                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png"
+                                        alt="image_not_found">
                                 </div>
                             </div>
                         </div>
@@ -149,8 +164,9 @@
 
                     <div class="col-lg-6">
                         <div class="product_details_content">
-                            <h2 class="item_title"> CURREN </h2>
-                            <p>It is a long established fact that a reader will be distracted eget velit. Donec ac tempus
+                            <h2 class="item_title"> Curren </h2>
+                            <p>It is a long established fact that a reader will be distracted eget velit. Donec ac
+                                tempus
                                 ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate</p>
                             <div class="item_review">
                                 <ul class="rating_star ul_li">
@@ -312,7 +328,8 @@
                                 <h4 class="reviews_tab_title">2 reviews for this product</h4>
                                 <div class="customer_review_item clearfix">
                                     <div class="customer_image">
-                                        <img src="{{ asset('frontend_assets') }}/images/team/team_1.jpg" alt="image_not_found">
+                                        <img src="{{ asset('frontend_assets') }}/images/team/team_1.jpg"
+                                            alt="image_not_found">
                                     </div>
                                     <div class="customer_content">
                                         <div class="customer_info">
@@ -332,7 +349,8 @@
 
                                 <div class="customer_review_item clearfix">
                                     <div class="customer_image">
-                                        <img src="{{ asset('frontend_assets') }}/images/team/team_2.jpg" alt="image_not_found">
+                                        <img src="{{ asset('frontend_assets') }}/images/team/team_2.jpg"
+                                            alt="image_not_found">
                                     </div>
                                     <div class="customer_content">
                                         <div class="customer_info">
@@ -382,10 +400,10 @@
             </div>
         </section>
         <!-- product_details - end
-                ================================================== -->
+                        ================================================== -->
 
         <!-- related_products_section - start
-                ================================================== -->
+                        ================================================== -->
         <section class="related_products_section section_space">
             <div class="container">
                 <div class="row">
@@ -527,5 +545,5 @@
             </div>
         </section>
         <!-- related_products_section - end
-                ================================================== -->
+                        ================================================== -->
     @endsection

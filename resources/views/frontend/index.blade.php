@@ -220,7 +220,7 @@
                                         @endif
                                     </div>
                                     <div class="details">
-                                        <h4><a href="#"> {{ $product->name }} </a></h4>
+                                        <h4><a href="{{ route('productdetails', $product->id) }}"> {{ $product->name }} </a></h4>
                                         <p><a href="{{ route('productdetails', $product->id) }}"> {{ Str::limit($product->short_description , 100) }} </a></p>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
@@ -503,7 +503,7 @@
                                 @foreach ($products as $product)
                                     <div class="slider_item">
                                         <div class="small_product_layout">
-                                            <a class="item_image" href="shop_details.html">
+                                            <a class="item_image" href="#">
                                                 <img src="{{ asset('uploads\thumbnail') }}/{{ $product->thumbnail }}" alt="Rolex Wrist Watch">
                                             </a>
                                             <div class="item_content">

@@ -4,8 +4,7 @@ use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController, ProductController};
-
-
+use App\Models\Product;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -58,6 +57,6 @@ Route::resource('/category', CategoryController::class);
 
 // Product Routes start
 Route::resource('/product', ProductController::class);
-Route::get('/productdetails', [App\Http\Controllers\FrontendController::class, 'productdetails'])->name('productdetails');
+Route::get('/productdetails/{id}',  [App\Http\Controllers\FrontendController::class, 'productdetails'])->name('productdetails');
 
 // Product Routes end
