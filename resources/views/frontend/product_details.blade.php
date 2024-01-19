@@ -93,7 +93,7 @@
                         <div class="product_details_image">
                             <div class="details_image_carousel">
                                 <div class="slider_item">
-                                    <img src="{{ asset('uploads/thumbnail') }}/{{ $product->thumbnail }}" alt="image_not_found" class="w-100" >
+                                    <img src="{{ asset('uploads/thumbnail') }}/{{ $product->thumbnail }}" alt="image_not_found" class="w-100    " >
                                 </div>
                                 <div class="slider_item">
                                     <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_2.png"
