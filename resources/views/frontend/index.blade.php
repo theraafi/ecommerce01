@@ -261,8 +261,13 @@
                                             @endif
                                         </span>
                                         <div class="add-cart-area">
+                                            <a href="{{ route('productdetails', $product->id) }}" class="btn btn-info">Details</a>
+                                        </div>
+
+                                        <div class="add-cart-area">
                                             <button class="add-to-cart">Add to cart</button>
                                         </div>
+
                                     </div>
                                 </div>
                             @endforeach
@@ -278,72 +283,6 @@
                                 <div class="details">
                                     <h4><a href="#">Apple Watch</a></h4>
                                     <p><a href="#">Apple Watch Series 7 case Pair any band with cool design</a></p>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>471.48
-                                                </bdi>
-                                            </span>
-                                        </ins>
-                                    </span>
-                                    <div class="add-cart-area">
-                                        <button class="add-to-cart">Add to cart</button>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="grid">
-                                <div class="product-pic">
-                                    <img src="{{ asset('frontend_assets') }}/images/shop/product-img-22.png" alt>
-                                    <span class="theme-badge-2">12% off</span>
-                                </div>
-                                <div class="details">
-                                    <h4><a href="#">Mac Mini</a></h4>
-                                    <p><a href="#">Apple MacBook Pro13.3″ Laptop with new Touch bar ID </a></p>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <span class="price">
-                                        <ins>
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>471.48
-                                                </bdi>
-                                            </span>
-                                        </ins>
-                                        <del aria-hidden="true">
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>904.21
-                                                </bdi>
-                                            </span>
-                                        </del>
-                                    </span>
-                                    <div class="add-cart-area">
-                                        <button class="add-to-cart">Add to cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="product-pic">
-                                    <img src="{{ asset('frontend_assets') }}/images/shop/product-img-23.png" alt>
-                                    <span class="theme-badge">Sale</span>
-                                </div>
-                                <div class="details">
-                                    <h4><a href="#">iPad mini</a></h4>
-                                    <p><a href="#">The ultimate iPad experience all over the world with coll model
-                                        </a></p>
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -394,89 +333,7 @@
                                 </div>
                             @endforeach
 
-                            {{-- <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_2.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">iPad</span>
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_3.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">iPhone</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_4.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">Headphone</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_5.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">Mac Mini</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_1.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">Men's Watches</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_2.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">CCTV Camera</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="slider_item">
-                                <div class="category_boxed">
-                                    <a href="#!">
-                                        <span class="item_image">
-                                            <img src="{{ asset('frontend_assets') }}/images/categories/category_3.png"
-                                                alt="image_not_found">
-                                        </span>
-                                        <span class="item_title">CCTV Camera</span>
-                                    </a>
-                                </div>
-                            </div> --}}
                         </div>
                         <div class="carousel_nav carousel-nav-top-right">
                             <button type="button" class="tc_left_arrow"><i
