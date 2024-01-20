@@ -2,11 +2,11 @@
 
 @section('content')
     <!-- main body - start
-                                        ================================================== -->
+                                            ================================================== -->
     <main>
 
         <!-- sidebar cart - start
-                                            ================================================== -->
+                                                ================================================== -->
         <div class="sidebar-menu-wrapper">
             <div class="cart_sidebar">
                 <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -69,10 +69,10 @@
             <div class="cart_overlay"></div>
         </div>
         <!-- sidebar cart - end
-                                            ================================================== -->
+                                                ================================================== -->
 
         <!-- breadcrumb_section - start
-                                            ================================================== -->
+                                                ================================================== -->
         <div class="breadcrumb_section">
             <div class="container">
                 <ul class="breadcrumb_nav ul_li">
@@ -82,10 +82,10 @@
             </div>
         </div>
         <!-- breadcrumb_section - end
-                                            ================================================== -->
+                                                ================================================== -->
 
         <!-- product_details - start
-                                            ================================================== -->
+                                                ================================================== -->
         <section class="product_details section_space pb-0">
             <div class="container">
                 <div class="row">
@@ -391,10 +391,10 @@
             </div>
         </section>
         <!-- product_details - end
-                                            ================================================== -->
+                                                ================================================== -->
 
         <!-- related_products_section - start
-                                            ================================================== -->
+                                                ================================================== -->
         <section class="related_products_section section_space">
             <div class="container">
                 <div class="row">
@@ -407,43 +407,9 @@
                             </div>
                             <div class="product-area clearfix">
 
-                                @forelse ($related_products as $relatedproducts)
-                                    <div class="grid">
-                                        <div class="product-pic">
-                                            <img src="{{ asset('uploads/thumbnail') }}/{{ $relatedproducts->thumbnail }}"
-                                                alt>
-
-                                        </div>
-                                        <div class="details">
-                                            <h4><a href="#"> {{ $relatedproducts->name }} </a></h4>
-                                            <p><a href="#"> {{ $relatedproducts->short_description }} </a></p>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                            </div>
-                                            <span class="price">
-                                                <ins>
-                                                    <span class="woocommerce-Price-amount amount">
-                                                        @if ($relatedproducts->discounted_price)
-                                                            <span> ${{ $relatedproducts->discounted_price }} </span>
-                                                            <del>${{ $relatedproducts->mrp }}</del>
-                                                        @else
-                                                            <span> {{ $relatedproducts->mrp }} </span>
-                                                        @endif
-                                                    </span>
-                                                </ins>
-                                            </span>
-                                            <div class="add-cart-area">
-                                                <button class="add-to-cart">Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @empty
-                                @endforelse
+                                @foreach ($related_products as $relatedproducts)
+                                    @include('frontend.frontend_components.products.grid')
+                                @endforeach
 
 
 
@@ -454,5 +420,5 @@
             </div>
         </section>
         <!-- related_products_section - end
-                                            ================================================== -->
+                                                ================================================== -->
     @endsection
