@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Size;
 use App\Models\Product;
+use Illuminate\Support\Carbon;
 
 class VariationController extends Controller
 {
@@ -29,7 +30,11 @@ class VariationController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        Size::insert([
+            "size" => $request->size,
+            "created_at" => Carbon::now(),
+        ]);
+        return back();
     }
 
     /**
