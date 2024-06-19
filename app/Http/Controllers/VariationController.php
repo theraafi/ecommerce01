@@ -14,7 +14,9 @@ class VariationController extends Controller
      */
     public function index()
     {
-        return view("layouts.dashboard.variations.index");
+        return view("layouts.dashboard.variations.index", [
+            'sizes' => Size::all(),
+        ]);
     }
 
     /**
@@ -22,7 +24,9 @@ class VariationController extends Controller
      */
     public function create()
     {
-        return view("layouts.dashboard.variations.create");
+        return view("layouts.dashboard.variations.create",[
+            'sizes' => Size::all(),
+        ]);
     }
 
     /**
@@ -30,10 +34,7 @@ class VariationController extends Controller
      */
     public function store(Request $request)
     {
-        Size::insert([
-            "size" => $request->size,
-            "created_at" => Carbon::now(),
-        ]);
+        
         return back()->with('size_added', 'Size added successfully');
     }
 
