@@ -845,7 +845,8 @@
                                                 <a class="timeline-panel text-muted" href="#">
                                                     <span>10 minutes ago</span>
                                                     <h6 class="mb-0">Youtube, a video-sharing website, goes live
-                                                        <strong class="text-primary">$500</strong>.</h6>
+                                                        <strong class="text-primary">$500</strong>.
+                                                    </h6>
                                                 </a>
                                             </li>
                                             <li>
@@ -1039,6 +1040,16 @@
                             <li><a href="{{ route('product.create') }}">Add Product</a></li>
                             <li><a href="{{ route('product.index') }}">View Product</a></li>
 
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-controls-3"></i>
+                            <span class="nav-text">Variations</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('variation.create') }}">Add Variations</a></li>
+                            <li><a href="{{ route('variation.index') }}">View Variations</a></li>
                         </ul>
                     </li>
                     {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
