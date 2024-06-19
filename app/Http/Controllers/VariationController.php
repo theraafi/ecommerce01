@@ -34,7 +34,7 @@ class VariationController extends Controller
             "size" => $request->size,
             "created_at" => Carbon::now(),
         ]);
-        return back();
+        return back()->with('size_added', 'Size added successfully');
     }
 
     /**

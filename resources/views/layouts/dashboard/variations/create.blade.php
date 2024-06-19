@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xl-8 m-auto">
+        {{-- Size Add Start --}}
+        <div class="col-xl-6 m-auto">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Add Size</h4>
@@ -23,18 +24,20 @@
                                     <button type="submit" class="btn btn-primary">Add</button>
                                 </div>
                             </div>
-                            {{-- @if (session('category_added'))
+                            @if (session('size_added'))
                                 <div class="text-success text-center mb-2">
-                                    {{ session('category_added') }}
+                                    {{ session('size_added') }}
                                 </div>
-                            @endif --}}
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-4 m-auto">
+        {{-- Size Add End--}}
+        
+        {{-- Show Sizes --}}
+        <div class="col-xl-6 m-auto">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Sizes</h4>
@@ -60,5 +63,7 @@
                 </div>
             </div>
         </div>
+        {{-- Show Sizes --}}
+
     </div>
 @endsection
