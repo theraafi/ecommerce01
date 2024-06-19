@@ -1,7 +1,10 @@
 <div class="grid">
     <div class="product-pic">
-        <img src="{{ asset('uploads/thumbnail') }}/{{ $relatedproducts->thumbnail }}"
+        <a href="{{ route('productdetails', $relatedproducts->id) }}">
+            <img src="{{ asset('uploads/thumbnail') }}/{{ $relatedproducts->thumbnail }}"
             alt>
+        </a>
+        
 
     </div>
     <div class="details">
