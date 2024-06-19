@@ -156,7 +156,7 @@
                                         alt="image_not_found">
                                 </div>
                                 <div class="slider_item">
-                                    <img src="{{ asset('frontend_assets') }}/images/details/product_details_img_4.png"
+                                    <img src="{{ asset('uplaod/thumbnail') }}/{{  }}"
                                         alt="image_not_found">
                                 </div>
                             </div>
