@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('color_name');
             $table->string('color_code');
+            $table->string('status')->default('inactive');
             $table->timestamps();
         });
     }
