@@ -60,9 +60,11 @@
                                         <th>{{ $size->id }}</th>
                                         <td>{{ $size->size }}</td>
                                         <td>
-                                            {{-- <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1" wire:click="edit_size({{ $size->id }})" wire:confirm="Are you sure you want to edit this size?">
+                                            {{-- <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1" wire:click="edit_size({{ $size->id }})">
                                                 <i class="fa fa-pencil"></i>
+
                                             </button> --}}
+
                                             <button type="button" class="btn btn-danger shadow btn-xs sharp"
                                                 wire:click="delete_size({{ $size->id }})"
                                                 wire:confirm="Are you sure you want to delete this size?">
@@ -76,7 +78,7 @@
                             </tbody>
                         </table>
                         @if (session('size_deleted'))
-                            <div class="text-danger text-center mb-2">
+                            <div class="alert alert-danger">
                                 {{ session('size_deleted') }}
                             </div>
                         @endif

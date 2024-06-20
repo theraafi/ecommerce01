@@ -10,7 +10,7 @@ use App\Models\User;
 class Addsize extends Component
 {
     public $size;
-    
+
     public function size_insert(){
         Size::insert([
             "size" => $this->size,
@@ -26,13 +26,15 @@ class Addsize extends Component
         session()->flash('size_deleted', 'Size Deleted successfully');
     }
 
-    public function edit_size($id){
-        Size::find($id)->update([
-            "size" => $this->size,
-            "user_id" => auth()->id(),
-            "updated_at" => now(),
-        ]);
-    }
+
+
+    // public function edit_size($id){
+    //     Size::find($id)->update([
+    //         "size" => $this->size,
+    //         "user_id" => auth()->id(),
+    //         "updated_at" => now(),
+    //     ]);
+    // }
 
     public function render()
     {

@@ -3,7 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController, ProductController, VariationController};
+use App\Http\Controllers\{HomeController, CustomerController, ProfileController, CategoryController, ColorController, ProductController, VariationController};
 use App\Models\Product;
 
 // Route::get('/', function () {
@@ -58,6 +58,7 @@ Route::resource('/category', CategoryController::class);
 // Variation Controller Start
 
 Route::resource('/variation', VariationController::class);
+Route::get('color', [ColorController::class, 'index'])->name('index');
 
 // Variation Controller end
 
