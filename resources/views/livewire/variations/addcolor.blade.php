@@ -16,12 +16,14 @@
                                 <div class="col-sm-6">
                                     <input type="color" class="form-control" wire:model="color">
                                 </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-6 col-form-label">Color Code</label>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" wire:model="code">
                                 </div>
-
                             </div>
+
 
                             <div class="form-group row mt-4">
                                 <div class="col-sm-10">
@@ -76,11 +78,11 @@
 
                             </tbody>
                         </table>
-                        @if (session('size_deleted'))
+                        {{-- @if (session('size_deleted'))
                             <div class="text-danger text-center mb-2">
                                 {{ session('size_deleted') }}
                             </div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
