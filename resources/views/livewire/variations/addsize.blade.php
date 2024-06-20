@@ -78,7 +78,7 @@
                             </tbody>
                         </table>
                         @if (session('size_deleted'))
-                            <div class="text-danger text-center mb-2">
+                            <div class="alert alert-danger">
                                 {{ session('size_deleted') }}
                             </div>
                         @endif
