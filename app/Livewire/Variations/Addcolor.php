@@ -20,9 +20,28 @@ class Addcolor extends Component
             'created_at' => Carbon::now(),
         ]);
 
-        $this->reset();
+        $this->inputreset();
         session()->flash('color_added', 'Color Added successfully');
     }
+
+
+    public function updatecolor($id){
+        Color::find($id)->update([
+            'color_name' => $this->color_name,
+            'color_code' => $this->color_code,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $this->inputreset();
+        session()->flash('color_added', 'Color Added successfully');
+    }
+
+    public function inputreset(){
+        $this->color_name = "";
+        $this->color_code = "";
+
+    }
+
 
     public function editcolor($id){
         $editcolor = Color::where('id', $id)->first();
@@ -30,6 +49,8 @@ class Addcolor extends Component
         $this->color_code = $editcolor->color_code;
 
     }
+
+
 
     public function delete_color($id){
         Color::find($id)->delete();
