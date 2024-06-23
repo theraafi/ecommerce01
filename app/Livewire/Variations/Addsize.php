@@ -21,6 +21,9 @@ class Addsize extends Component
         session()->flash('size_added', 'Size Added successfully');
     }
 
+
+
+
     public function delete_size($id){
         Size::find($id)->delete();
         session()->flash('size_deleted', 'Size Deleted successfully');
@@ -35,6 +38,7 @@ class Addsize extends Component
     //         "updated_at" => now(),
     //     ]);
     // }
+
 
     public function render()
     {

@@ -42,9 +42,10 @@
             </div>
         </div>
         {{-- Color Add End --}}
+    </div>
 
-        {{-- Show Color --}}
-        <div class="col-xl-6 m-auto">
+    <div class="row">
+        <div class="col-xl-12 m-auto">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Color Variants</h4>
@@ -83,17 +84,17 @@
 
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary shadow btn-xs sharp" wire:click="editcolor{{ $color->id }}" data-toggle="modal" data-target="#editcolor{{ $color->id }}">
+                                            <button type="button" class="btn btn-primary shadow btn-xs sharp" wire:click="editcolor({{ $color->id }})" data-toggle="modal" data-target="#editcolor{{ $color->id }}">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="editcolor{{ $color->id }}" tabindex="-1"
+                                            <div wire:ignore.self class="modal fade" id="editcolor{{ $color->id }}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title
+                                                            <h5 class="modal-title" id="exampleModalLabel">Color Update
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
@@ -109,7 +110,7 @@
                                                                     <div class="card-body">
                                                                         <div class="basic-form">
 
-                                                                            <form wire:submit.prevent="updatecolor">
+                                                                            <form wire:submit.prevent="updatecolor({{ $color->id }})">
 
                                                                                 <div class="form-group row">
                                                                                     <label class="col-sm-6 col-form-label">Update Color Name</label>
@@ -128,14 +129,14 @@
 
                                                                                 <div class="form-group row mt-4">
                                                                                     <div class="col-sm-10">
-                                                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                                                        <button type="submit" class="btn btn-primary">Update</button>
                                                                                     </div>
                                                                                 </div>
-                                                                                @if (session('color_added'))
+                                                                                {{-- @if (session('color_added'))
                                                                                     <div class="alert alert-success">
                                                                                         {{ session('color_added') }}
                                                                                     </div>
-                                                                                @endif
+                                                                                @endif --}}
                                                                             </form>
                                                                         </div>
                                                                     </div>
@@ -167,7 +168,10 @@
                 </div>
             </div>
         </div>
+    </div>
         {{-- Show Color --}}
 
-    </div>
+        {{-- Show Color --}}
+
+
 </div>
