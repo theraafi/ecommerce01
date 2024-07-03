@@ -34,7 +34,10 @@ class VariationController extends Controller
      */
     public function store(Request $request)
     {
-        
+        Size::insert([
+            'size' => $request-> size,
+            'created_at' => Carbon::now(),
+        ]);
         return back()->with('size_added', 'Size added successfully');
     }
 

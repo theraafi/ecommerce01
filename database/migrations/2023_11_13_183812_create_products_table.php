@@ -23,6 +23,9 @@ return new class extends Migration
             $table->longText('long_description')->nullable();
             $table->longText('additional_information')->nullable();
             $table->string('thumbnail')->nullable();
+            // size field    
+            $table->string('sizes')->nullable();
+            // size field
             $table->timestamps();
         });
     }

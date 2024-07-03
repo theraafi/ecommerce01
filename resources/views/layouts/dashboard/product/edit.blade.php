@@ -82,6 +82,19 @@
                             </div>
                         </div>
 
+                        
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Sizes</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="sizes[]" multiple>
+                                    
+                                    @foreach ($sizes as $size)
+                                        <option value="{{ $size->size }}"> {{ $size->size }} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row mt-5">
                             <label class="col-sm-3 col-form-label">Old Product Thumbnail</label>

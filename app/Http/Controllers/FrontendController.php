@@ -23,8 +23,11 @@ class FrontendController extends Controller
     public function productdetails ($id)
     {
         $product = Product::findOrfail($id);
+        
+        $sizes = explode(',', $product->size);
+
         $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $id)->get();
-        return view('frontend.product_details', compact('product', 'related_products'));
+        return view('frontend.product_details', compact('product', 'related_products', 'sizes'));
     }
 
     public function about()

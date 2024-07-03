@@ -2,11 +2,11 @@
 
 @section('content')
     <!-- main body - start
-                                            ================================================== -->
+                                                ================================================== -->
     <main>
 
         <!-- sidebar cart - start
-                                                ================================================== -->
+                                                    ================================================== -->
         <div class="sidebar-menu-wrapper">
             <div class="cart_sidebar">
                 <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
@@ -69,10 +69,10 @@
             <div class="cart_overlay"></div>
         </div>
         <!-- sidebar cart - end
-                                                ================================================== -->
+                                                    ================================================== -->
 
         <!-- breadcrumb_section - start
-                                                ================================================== -->
+                                                    ================================================== -->
         <div class="breadcrumb_section">
             <div class="container">
                 <ul class="breadcrumb_nav ul_li">
@@ -82,17 +82,17 @@
             </div>
         </div>
         <!-- breadcrumb_section - end
-                                                ================================================== -->
+                                                    ================================================== -->
 
         <!-- product_details - start
-                                                ================================================== -->
+                                                    ================================================== -->
         <section class="product_details section_space pb-0">
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-6">
                         <div class="product_details_image">
                             <div class="details_image_carousel">
-                               <div class="slider_item">
+                                <div class="slider_item">
 
                                     <img src="{{ asset('uploads/thumbnail') }}/{{ $product->thumbnail }}"
                                         alt="image_not_found" class="w-100    ">
@@ -200,10 +200,9 @@
                                                 <h4 class="input_title">Size *</h4>
                                                 <select>
                                                     <option data-display="- Please select -">Choose A Option</option>
-                                                    <option value="1">Some option</option>
-                                                    <option value="2">Another option</option>
-                                                    <option value="3" disabled>A disabled option</option>
-                                                    <option value="4">Potato</option>
+                                                    @foreach ($sizes as $size)
+                                                        <option value="1"> {{ $size }} </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -393,10 +392,10 @@
             </div>
         </section>
         <!-- product_details - end
-                                                ================================================== -->
+                                                    ================================================== -->
 
         <!-- related_products_section - start
-                                                ================================================== -->
+                                                    ================================================== -->
         <section class="related_products_section section_space">
             <div class="container">
                 <div class="row">
@@ -422,5 +421,5 @@
             </div>
         </section>
         <!-- related_products_section - end
-                                                ================================================== -->
+                                                    ================================================== -->
     @endsection

@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
+use App\Models\Size;
 
 class ProductController extends Controller
 {
@@ -73,6 +74,7 @@ class ProductController extends Controller
     {
         return view('layouts.dashboard.product.edit',compact('product'),[
             'categories' => Category::all(),
+            'sizes' => Size::all(),  
         ]);
     }
 
@@ -81,6 +83,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $size = implode(',', $request->sizes);
+
         Product::find($product->id)->update([
             "name" => $request->name,
             "category_id" => $request->category_id,
@@ -90,6 +94,7 @@ class ProductController extends Controller
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
             "additional_information" => $request->additional_information,
+            'size' => $size,
         ]);
 
         if ($request->hasFile('thumbnail')) {

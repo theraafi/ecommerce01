@@ -17,11 +17,9 @@ class Addsize extends Component
             "user_id" => auth()->id(),
             "created_at" => Carbon::now(),
         ]);
-        $this->reset();
+        $this->inputreset();
         session()->flash('size_added', 'Size Added successfully');
     }
-
-
 
 
     public function delete_size($id){
@@ -29,15 +27,26 @@ class Addsize extends Component
         session()->flash('size_deleted', 'Size Deleted successfully');
     }
 
+    public function inputreset(){
+        $this->size = "";
+    }
 
 
-    // public function edit_size($id){
-    //     Size::find($id)->update([
-    //         "size" => $this->size,
-    //         "user_id" => auth()->id(),
-    //         "updated_at" => now(),
-    //     ]);
-    // }
+    public function editsize($id){
+        $editsize = Size::where('id', $id)->first();
+        $this->size = $editsize->size;
+    }
+
+    public function updatesize($id){
+        Size::find($id)->update([
+            "size" => $this->size,
+            "user_id" => auth()->id(),
+            "updated_at" => now(),
+        ]);
+        $this->inputreset();
+        return redirect()->to('/variation/create');
+        // session()->flash('size_updated', 'Size Updated successfully');
+    }
 
 
     public function render()

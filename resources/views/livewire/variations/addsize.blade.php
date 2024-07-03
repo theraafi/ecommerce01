@@ -1,6 +1,7 @@
 <div>
+
+    {{-- Size Add Start --}}
     <div class="row">
-        {{-- Size Add Start --}}
         <div class="col-xl-6 m-auto">
             <div class="card">
                 <div class="card-header">
@@ -34,10 +35,12 @@
                 </div>
             </div>
         </div>
-        {{-- Size Add End --}}
+    </div>
+    {{-- Size Add End --}}
 
-        {{-- Show Sizes --}}
-        <div class="col-xl-6 m-auto">
+    {{-- Show Sizes --}}
+    <div class="row">
+        <div class="col-xl-8 m-auto">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Sizes</h4>
@@ -50,7 +53,8 @@
                                     <th scope="col">Serial</th>
                                     <th scope="col">ID</th>
                                     <th scope="col">Size</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,10 +64,80 @@
                                         <th>{{ $size->id }}</th>
                                         <td>{{ $size->size }}</td>
                                         <td>
-                                            {{-- <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1" wire:click="edit_size({{ $size->id }})">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary shadow btn-xs sharp"
+                                                wire:click="editsize({{ $size->id }})" data-toggle="modal"
+                                                data-target="#editsize{{ $size->id }}">
                                                 <i class="fa fa-pencil"></i>
+                                            </button>
 
-                                            </button> --}}
+                                            <!-- Modal -->
+                                            <div wire:ignore.self class="modal fade" id="editsize{{ $size->id }}"
+                                                tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Size Update
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="col-xl-12 m-auto">
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title">Update Size Variant</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <div class="basic-form">
+
+                                                                            <form
+                                                                                wire:submit.prevent="updatesize({{ $size->id }})">
+
+                                                                                <div class="form-group row">
+                                                                                    <label
+                                                                                        class="col-sm-6 col-form-label">Update
+                                                                                        Size Name</label>
+                                                                                    <div class="col-sm-6">
+                                                                                        <input type="text"
+                                                                                            class="form-control"
+                                                                                            wire:model="size">
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="form-group row mt-4">
+                                                                                    <div class="col-sm-10">
+                                                                                        <button type="submit"
+                                                                                            class="btn btn-primary">Update</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                                {{-- @if (session('color_added'))
+                                                                                    <div class="alert alert-success">
+                                                                                        {{ session('color_added') }}
+                                                                                    </div>
+                                                                                @endif --}}
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+
 
                                             <button type="button" class="btn btn-danger shadow btn-xs sharp"
                                                 wire:click="delete_size({{ $size->id }})"
@@ -86,7 +160,8 @@
                 </div>
             </div>
         </div>
-        {{-- Show Sizes --}}
-
     </div>
+    {{-- Show Sizes --}}
+
+
 </div>

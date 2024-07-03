@@ -33,7 +33,7 @@ class Addcolor extends Component
         ]);
 
         $this->inputreset();
-        session()->flash('color_added', 'Color Added successfully');
+        return redirect()->to('/color');
     }
 
     public function inputreset(){
