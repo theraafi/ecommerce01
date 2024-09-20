@@ -74,7 +74,7 @@ class ProductController extends Controller
     {
         return view('layouts.dashboard.product.edit',compact('product'),[
             'categories' => Category::all(),
-            'sizes' => Size::all(),  
+            'sizes' => Size::all(),
         ]);
     }
 
